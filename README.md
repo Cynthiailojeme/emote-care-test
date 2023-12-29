@@ -21,4 +21,4 @@ A simple SvelteKit application displaying user profiles from Figma designs. Resp
 
 #### Submission:
 - [GitHub Repo](https://github.com/Cynthiailojeme/emote-care-test)
-- [Live Demo](https://emote-care-test.vercel.app/)
+- [Live Demo](https://cynthia-emote-care-test.vercel.app/)

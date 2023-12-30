@@ -62,10 +62,10 @@
 		>
 			{#each options as option (option.value)}
 				<button
-					class="w-full px-4 py-2 flex flex-row items-center text-sm text-left text-gray-700 cursor-pointer hover:bg-gray-100"
+					class="w-full px-4 py-2 flex flex-row items-center justify-between text-sm text-left text-gray-700 cursor-pointer hover:bg-gray-100"
 					on:click={() => selectOption(option)}
 				>
-					{option.label}
+					<span>{option.label}</span>
 					{#if selectedOption?.value === option.value}
 						<img
 							src="/assets/icons/check.svg"

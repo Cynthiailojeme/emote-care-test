@@ -1,9 +1,12 @@
 <script>
+	import dayjs from 'dayjs';
+	import { onMount } from 'svelte';
 	import Dropdown from '../components/Dropdown.svelte';
 	import Filters from '../components/Filters.svelte';
-	// Added new data to each object: appointmentType, sex, rates
-	import therapistsData from '../data/therapist-data.json';
+	import therapistsData from '../data/therapist-data.json'; // added new data items to each object: appointmentType, sex, rates, nextAvailableDate, nextAvailableTime
 	import TherapistProfile from '../components/TherapistProfile.svelte';
+	import { filteredTherapistProfiles, selectedFilters } from '../lib/store';
+	import MobileFilterButtons from '../components/MobileFilterButtons.svelte';
 
 	let sortOptions = [
 		{ label: 'Name: A to Z', value: 'name-asc' },
@@ -17,10 +20,6 @@
 
 	let selectedSortOption = { label: 'Year of experience: High to Low', value: 'exp-desc' };
 
-	function handleSortChange(option) {
-		selectedSortOption = option;
-	}
-
 	let startIndex = 0;
 	let itemsPerPage = 7; // Number of items to show at a time
 
@@ -32,6 +31,72 @@
 	function scrollLeft() {
 		const newIndex = startIndex - itemsPerPage;
 		startIndex = Math.max(0, newIndex);
+	}
+
+	function clearAllFilters() {
+		selectedFilters.set({
+			appointmentType: [],
+			price: { min: 0, max: 200 },
+			yearsOfExperience: { min: 0, max: 25 },
+			sex: '',
+			helpNeeded: '',
+			therapistType: '',
+			country: [],
+			language: []
+		});
+		filteredTherapistProfiles.update(() => therapistsData);
+	}
+
+	function clearAllSortings() {
+		filteredTherapistProfiles.update(() => therapistsData);
+	}
+
+	function sortDisplayedItems() {
+		const sortKey = selectedSortOption.value;
+		const profiles = [...$filteredTherapistProfiles];
+
+		switch (sortKey) {
+			case 'name-asc':
+				profiles.sort((a, b) => a.firstName.localeCompare(b.firstName));
+				break;
+			case 'name-desc':
+				profiles.sort((a, b) => b.firstName.localeCompare(a.firstName));
+				break;
+			case 'rate-asc':
+				profiles.sort((a, b) => Number(a?.rates?.amount) - Number(b?.rates?.amount));
+				break;
+			case 'rate-desc':
+				profiles.sort((a, b) => Number(b?.rates?.amount) - Number(a?.rates?.amount));
+				break;
+			case 'exp-asc':
+				profiles.sort((a, b) => a.profile?.yearsOfExperience - b?.profile?.yearsOfExperience);
+				break;
+			case 'exp-desc':
+				profiles.sort((a, b) => b?.profile?.yearsOfExperience - a?.profile?.yearsOfExperience);
+				break;
+			case 'next-date':
+				profiles.sort((a, b) => dayjs(a?.nextAvailableDate).diff(dayjs(b?.nextAvailableDate)));
+				break;
+			default:
+				break;
+		}
+
+		filteredTherapistProfiles.update(() => profiles);
+	}
+
+	function handleSortChange(option) {
+		selectedSortOption = option;
+		sortDisplayedItems();
+	}
+
+	onMount(() => {
+		sortDisplayedItems();
+	});
+
+	// Subscribe to changes in the filteredTherapistProfiles store
+	$: {
+		$filteredTherapistProfiles = $filteredTherapistProfiles;
+		$selectedFilters = $selectedFilters;
 	}
 </script>
 
@@ -61,26 +126,14 @@
 				/>
 			</div>
 
-			<div class="flex justify-between gap-3 sm:hidden my-4">
-				<button
-					type="button"
-					class="inline-flex w-full h-10 px-6 gap-2 flex-1 rounded-full py-2 bg-white shadow-md border border-stone-300 justify-center items-center"
-					id="options-menu"
-					aria-haspopup="true"
-					aria-expanded="true"
-				>
-					Sort by
-				</button>
-				<button
-					type="button"
-					class="inline-flex w-full h-10 px-6 gap-2 flex-1 rounded-full py-2 bg-white shadow-md border border-stone-300 justify-center items-center"
-					id="options-menu"
-					aria-haspopup="true"
-					aria-expanded="true"
-				>
-					Filter by
-				</button>
-			</div>
+			<!-- mobile filter buttons -->
+			<MobileFilterButtons
+				resetAllFilters={clearAllFilters}
+				resetAllSortings={clearAllSortings}
+				selectedOption={null}
+				onSelectionChange={handleSortChange}
+				options={sortOptions}
+			/>
 		</div>
 
 		<!-- therapists section avatar -->
@@ -151,9 +204,17 @@
 		</div>
 
 		<!-- therapists section (profiles) -->
-		{#each therapistsData as therapist}
-			<TherapistProfile {therapist} />
-		{/each}
+		{#if $filteredTherapistProfiles?.length > 0}
+			{#each $filteredTherapistProfiles as therapist}
+				<TherapistProfile {therapist} />
+			{/each}
+		{:else}
+			<p
+				class="mt-8 text-primary-dark font-poppins text-[1rem] lg-screens:text-[1.375rem] sm:text-[1.125rem] mb-1 font-semibold leading-5"
+			>
+				No matching profile found
+			</p>
+		{/if}
 	</section>
 
 	<section
@@ -171,11 +232,13 @@
 				Filter by
 			</button>
 
-			<button>Clear all</button>
+			<button on:click={clearAllFilters} class="hover:underline">Clear all</button>
 		</div>
 
 		<!-- filter section options -->
-		<Filters profiles={therapistsData} />
+		<div class="static">
+			<Filters profiles={therapistsData} />
+		</div>
 	</section>
 </div>
 
@@ -185,7 +248,7 @@
 
 <style>
 	.animate__animated {
-		animation-duration: 1s; /* Adjust duration as needed */
+		animation-duration: 1s;
 	}
 	.animate__fadeInUp {
 		animation-name: fadeInUp;

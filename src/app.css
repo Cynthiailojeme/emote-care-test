@@ -3,22 +3,39 @@
 @tailwind utilities;
 
 :root {
-    --range-slider:          #d7dada; /* slider main background color */
-    --range-handle-inactive: #99a2a2; /* inactive handle color */
-    --range-handle:          #BFD962; /* non-focussed handle color */
-    --range-handle-focus:    #BFD962; /* focussed handle color */
-    --range-handle-border:   #203136; /* handle border color */
-    --range-range-inactive:  #d7dada; /* inactive range bar background color */
-    --range-range:           #BFD962; /* active range background color */
-    --range-float-inactive:  #203136; /* inactive floating label background color */
-    --range-float:           #203136; /* floating label background color */
-    --range-float-text:      white; /* text color on floating label */
-  }
+	--range-slider: #d7dada; /* slider main background color */
+	--range-handle-inactive: #99a2a2; /* inactive handle color */
+	--range-handle: #bfd962; /* non-focussed handle color */
+	--range-handle-focus: #bfd962; /* focussed handle color */
+	--range-handle-border: #203136; /* handle border color */
+	--range-range-inactive: #d7dada; /* inactive range bar background color */
+	--range-range: #bfd962; /* active range background color */
+	--range-float-inactive: #203136; /* inactive floating label background color */
+	--range-float: #203136; /* floating label background color */
+	--range-float-text: white; /* text color on floating label */
+}
 
-  .rangeSlider {
-    font-size: 0.75rem !important;
-  }
+html {
+	scroll-behavior: smooth;
+}
 
-  .rangeSlider.range:not(.min):not(.max) .rangeNub {
-    border-radius: 10em !important;
+.rangeSlider {
+	font-size: 0.75rem !important;
+}
+
+.rangeSlider.range:not(.min):not(.max) .rangeNub {
+	border-radius: 10em !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	appearance: textfield;
+	-moz-appearance: textfield;
 }

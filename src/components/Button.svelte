@@ -18,7 +18,7 @@
 </script>
 
 <button
-	class="{getBackgroundColor()} flex items-center justify-center min-w-48 text-base font-medium leading-5 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-11 sm:h-13"
+	class="{getBackgroundColor()} flex items-center justify-center min-w-48 text-[0.875rem] sm:text-base lg-screens:text-[1.125rem] font-medium leading-5 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-11 sm:h-13"
 	style="width: {width}; padding: 0.625rem 3rem; border-radius: 3.125rem;"
 >
 	{#if $$slots.leftIcon}

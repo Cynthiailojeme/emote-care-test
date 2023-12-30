@@ -1,6 +1,8 @@
 <script>
 	import { capitalizeFirstLetter, getGMTOffset } from '$lib/helpers';
+	import dayjs from 'dayjs';
 	import Button from './Button.svelte';
+
 	export let therapist;
 
 	const lgScreenDisplay = therapist?.profile?.therapyAreas?.slice(0, 2).length;
@@ -8,6 +10,16 @@
 		therapist?.profile?.therapyAreas?.length <= 3 ? lgScreenDisplay : 1;
 	const undisplayedTherapistAreas =
 		therapist?.profile?.therapyAreas.length - displayedTherapistAreas;
+
+	function getCountryAcronym(country) {
+		const countryMappings = {
+			'United States': 'USA',
+			'United Kingdom': 'UK'
+		};
+
+		const countryName = countryMappings[country] || country;
+		return countryName;
+	}
 </script>
 
 <div
@@ -36,14 +48,13 @@
 
 				<div class="flex flex-col">
 					<h2
-						class="text-primary-dark font-poppins text-[1.125rem] lg-screens:text-[1.5rem] sm:text-[1.375rem] mb-1 font-semibold leading-5"
+						class="text-primary-dark font-poppins text-[1.125rem] lg-screens:text-[1.5rem] mb-0 sm:text-[1.375rem] sm:mb-1 font-semibold leading-5 inline-flex gap-2 flex-col"
 					>
-						{capitalizeFirstLetter(therapist?.firstName)}
-						<br class="visible sm:hidden" />
-						{capitalizeFirstLetter(therapist?.lastName)}
+						<span>{capitalizeFirstLetter(therapist?.firstName)}</span>
+						<span>{capitalizeFirstLetter(therapist?.lastName)}</span>
 					</h2>
 
-					<div class="hidden sm:inline-flex items-center gap-2">
+					<div class="hidden sm:inline-flex items-center gap-2 mt-2">
 						<img
 							src="assets/icons/check-circle.svg"
 							alt="favorite icon"
@@ -53,24 +64,32 @@
 							class="text-primary-dark font-poppins text-[0.75rem] lg-screens:text-[1.125rem] sm:text-[1rem] font-medium leading-5"
 						>
 							{therapist?.profile?.yearsOfExperience
-								? `${therapist?.profile?.yearsOfExperience} of experience`
+								? `${therapist?.profile?.yearsOfExperience} year${
+										therapist?.profile?.yearsOfExperience > 0 && 's'
+									} of experience`
 								: 'N/A'}
 						</p>
 					</div>
 
 					<div class="hidden sm:inline-flex items-center gap-2 mt-1">
 						<div class="inline-flex items-center gap-2">
-							<img src="assets/icons/map-pin.svg" alt="map icon" />
-							<p
-								class="text-stroke-dark font-poppins text-[0.75rem] sm:text-[1rem] font-medium leading-5"
-							>
-								{therapist?.demographic?.location ?? 'N/A'},
+							<img
+								src="assets/icons/map-pin.svg"
+								alt="map icon"
+								class="h-[0.9375rem] w-[0.9375rem] sm:h-5 sm:w-5"
+							/>
+							<p>
+								{getCountryAcronym(therapist?.demographic?.location) ?? 'N/A'},
 								{getGMTOffset(therapist?.demographic?.location)}
 							</p>
 						</div>
 
 						<div class="inline-flex items-center gap-2">
-							<img src="assets/icons/globe.svg" alt="globe icon" />
+							<img
+								src="assets/icons/globe.svg"
+								alt="globe icon"
+								class="h-[0.9375rem] w-[0.9375rem] sm:h-5 sm:w-5"
+							/>
 							<p
 								class="text-stroke-dark font-poppins text-[0.75rem] sm:text-[1rem] font-medium leading-5"
 							>
@@ -99,25 +118,33 @@
 					class="text-primary-dark font-poppins text-[0.75rem] sm:text-[1rem] font-medium leading-5"
 				>
 					{therapist?.profile?.yearsOfExperience
-						? `${therapist?.profile?.yearsOfExperience} of experience`
+						? `${therapist?.profile?.yearsOfExperience} years of experience`
 						: 'N/A'}
 				</p>
 			</div>
 
 			<div class="sm:hidden inline-flex items-center gap-2 mt-1">
 				<div class="inline-flex items-center gap-2">
-					<img src="assets/icons/map-pin.svg" alt="map icon" />
+					<img
+						src="assets/icons/map-pin.svg"
+						alt="map icon"
+						class="h-[0.9375rem] w-[0.9375rem] sm:h-5 sm:w-5"
+					/>
 					<p
 						class="text-stroke-dark font-poppins text-[0.75rem] sm:text-[1rem] font-medium leading-5"
 					>
-						{therapist?.demographic?.location ?? 'N/A'}, {getGMTOffset(
+						{getCountryAcronym(therapist?.demographic?.location) ?? 'N/A'}, {getGMTOffset(
 							therapist?.demographic?.location
 						)}
 					</p>
 				</div>
 
 				<div class="sm:hidden inline-flex items-center gap-2">
-					<img src="assets/icons/globe.svg" alt="globe icon" />
+					<img
+						src="assets/icons/globe.svg"
+						alt="globe icon"
+						class="h-[0.9375rem] w-[0.9375rem] sm:h-5 sm:w-5"
+					/>
 					<p
 						class="text-stroke-dark font-poppins text-[0.75rem] sm:text-[1rem] font-medium leading-5"
 					>
@@ -128,7 +155,7 @@
 		</div>
 
 		<p
-			class="mt-4 mb-2 overflow-hidden line-clamp-2 max-h-[2.75rem] sm:max-h-[3rem] sm:my-6 text-primary-dark font-poppins text-base text-[0.875rem] sm:text-base font-normal sm:leading-[1.25rem] tracking[-0.02rem]"
+			class="mt-4 mb-2 overflow-hidden line-clamp-2 max-h-[2.75rem] sm:max-h-[3rem] sm:my-6 text-primary-dark font-poppins text-[0.875rem] sm:text-base font-normal sm:leading-[1.25rem] tracking[-0.02rem]"
 		>
 			{therapist?.profile?.bio}
 		</p>
@@ -139,14 +166,14 @@
 					{#if therapist?.profile?.therapyAreas?.length <= 3}
 						{#each therapist?.profile?.therapyAreas?.slice(0, 2) as area}
 							<div
-								class="inline-flex mr-2 bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-base text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
+								class="inline-flex mr-2 bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
 							>
 								{area}
 							</div>
 						{/each}
 					{:else}
 						<div
-							class="lg-screens:mr-2 bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-base text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
+							class="lg-screens:mr-2 bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
 						>
 							{therapist?.profile?.therapyAreas[0]}
 						</div>
@@ -154,13 +181,13 @@
 				</div>
 
 				<div
-					class="lg-screens:hidden bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-base text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
+					class="lg-screens:hidden bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
 				>
 					{therapist?.profile?.therapyAreas[0]}
 				</div>
 				{#if undisplayedTherapistAreas > 0}
 					<div
-						class="bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-base text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
+						class="bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
 					>
 						<span class="inine-flex sm:hidden">Show</span> +{undisplayedTherapistAreas}
 					</div>
@@ -169,7 +196,7 @@
 
 			<button
 				type="button"
-				class="text-accent-dark-blue font-poppins text-base text-[0.875rem] mt-4 sm:text-base sm:mt-0"
+				class="text-accent-dark-blue font-poppins text-[0.875rem] mt-4 sm:text-base sm:mt-0"
 				><a href="/{therapist?.id}"
 					>View <span class="hidden lg-screens:inline-flex">full</span> profile</a
 				></button
@@ -206,13 +233,18 @@
 				>
 					Next available <span class="inline-flex sm:hidden">date</span>
 				</h5>
-				<div class="flex items-center">
+				<div class="flex items-center justify-center">
 					<img
 						src="assets/icons/calendar.svg"
 						alt="calendar icon"
 						class="hidden sm:inline-flex mr-2"
 					/>
-					<span>{therapist?.rates?.date} {therapist?.rates?.time}</span>
+					<span
+						>{dayjs(therapist?.nextAvailableDate).isSame(dayjs(), 'day')
+							? 'Today'
+							: therapist?.nextAvailableDate}
+						{therapist?.nextAvailableTime}</span
+					>
 				</div>
 			</div>
 		</div>
@@ -228,6 +260,6 @@
 <style>
 	.hover\:scale-102:hover {
 		transform: scale(1.02);
-		transition: transform 0.3s ease; /* Adjust the duration and easing as needed */
+		transition: transform 0.3s ease;
 	}
 </style>

@@ -1,0 +1,657 @@
+[
+	{
+		"avatarUrl": "https://s3-alpha-sig.figma.com/img/dc36/5232/ce9cf859ee7b5347c2c4481b56725138?Expires=1704672000&Signature=Vdw9X7tBvJrgiXXaRQDL08vozNN0XGRPU~ogFZpqC9lF~5lo6q5JsyzoETwUBKGfyWjctSlAXz1j9lAFsKX68kkNiuIdnXj88lXPlDuM64VtYekd5siZ5~OOO7Y3Xkt6HrZ3RKV0EKA~8np9wh5s0-FtejRKjm5JL2OTqPsR0ZGIQhn8VRhalP1Xhvh5SEZQGdEzLclUMmkSH8bzKYdz5yOwrxRp4zDqJHzKK8CWjvpD57Ekw660dzrI8-2iZMiIHbItFzyk4rQhUx3znT-rbEc231GaARQYDWD2WKzf9qbp-nhlgimFvbVVWpGQfr-7aPPIB3qBO5rszbJ3iJPo8g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-11T03:44:58.214Z",
+		"demographic": {
+			"location": "Canada",
+			"mainLanguage": ["English, Spanish"]
+		},
+		"email": "jkscheung@emotecare.com",
+		"sex": "Female",
+		"failedLoginAttempts": 0,
+		"firstName": "Romina",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:ht5lwxi0r26kliloc7ho",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastFailedLoginAt": "2023-12-12T07:50:06.370Z",
+		"lastName": "Andrade",
+		"lastSignedInAt": "2023-12-11T03:44:58.304Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$w3oArpe6Z5NVnQYGaoTa+Q$ouEnPYKmlLlx9D3jHg233ZNkighoJZXvrMcHEaKBZqo",
+		"phoneNumber": "+6112345678",
+		"profile": {
+			"bio": "Compassionate listener, specializing in anxiety and trauma. Integrates CBT and mindfulness to foster healing and personal growth.",
+			"city": "Toronto",
+			"country": "Canada",
+			"imageUrls": [],
+			"qualifications": [],
+			"therapyAreas": [
+				"Play Therapy for Children",
+				"Trauma and PTSD",
+				"Anxiety",
+				"Academic Stress"
+			],
+			"therapyCategories": [],
+			"timeZone": "Europe/London",
+			"topAreas": [
+				"Anxiety and Panic Disorders",
+				"Trauma and PTSD",
+				"Couples and Relationship Counseling"
+			],
+			"yearsOfExperience": 19
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": false
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": false
+			},
+			"detectedUserTimezone": "Asia/Hong_Kong",
+			"enable2Fa": false,
+			"therapistProfileTooltipTour": {
+				"showAboutMeTour": true,
+				"showAvailabilityTour": true,
+				"showBankDetailsTour": true,
+				"showExperienceTour": true,
+				"showIntroductionTour": true,
+				"showNavigationTour": true,
+				"showRatesTour": true
+			}
+		},
+		"rates": {
+			"amount": "64"
+		},
+        "nextAvailableDate": "Jan 4, 2024",
+        "nextAvailableTime": "11:00 am",
+		"updatedAt": "2023-12-14T03:15:55.829Z"
+	},
+	{
+		"avatarUrl": "https://images.unsplash.com/photo-1625389833948-11501a6d9b25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=top,faces&w=1024&h=1024&q=80",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-08T13:22:48.577Z",
+		"demographic": {
+			"location": "United Kingdom",
+			"mainLanguage": "English"
+		},
+		"email": "eberewill1@gmail.com",
+		"sex": "Male",
+		"failedLoginAttempts": 0,
+		"firstName": "sole",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:pze3yx4ajueqym7z1ha1",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastName": "Teck",
+		"lastSignedInAt": "2023-12-08T13:22:48.662Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$+wzsf+1+9yjS3zw0zY+3tw$ppoKHAgYCIQtMdhmRi1z+KhZtEeaKhq04NpbX9yV92Q",
+		"phoneNumber": "+61890",
+		"profile": {
+			"bio": "“Specializing in grief and loss, offering person-centered and expressive arts therapy for healing",
+			"qualifications": [],
+			"therapyAreas": [
+				"Couples Counseling",
+				"Play Therapy for Children",
+				"Anxiety",
+				"Academic Stress"
+			],
+			"therapyCategories": [
+				"Cognitive Behavioral Therapy (CBT)",
+				"Psychodynamic Therapy",
+				"Mindfulness-Based Therapy",
+				"Dialectical Behavior Therapy (DBT)"
+			],
+			"yearsOfExperience": 12
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": true
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": true
+			},
+			"detectedUserTimezone": "Africa/Lagos",
+			"enable2Fa": false,
+			"privacy": {
+				"shareAge": false,
+				"shareBirthday": false,
+				"shareEthnicity": false,
+				"shareFaith": false,
+				"shareGender": false,
+				"shareNotes": false,
+				"shareSexuality": false
+			}
+		},
+		"rates": {
+			"amount": "65"
+		},
+        "nextAvailableDate": "Jan 4, 2024",
+        "nextAvailableTime": "12:00 pm",
+		"updatedAt": "2023-12-08T13:22:48.614Z"
+	},
+	{
+		"avatarUrl": "data:image/jpeg;base64,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",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-12T06:26:54.982Z",
+		"demographic": {
+			"location": "Australia",
+			"mainLanguage": ["English"]
+		},
+		"email": "liam@emotecare.com",
+		"sex": "Male",
+		"failedLoginAttempts": 0,
+		"firstName": "Liam",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:y5zgz4n6av6mx13foe6e",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastFailedLoginAt": "2023-12-12T06:52:47.677Z",
+		"lastName": "Kelvin",
+		"lastSignedInAt": "2023-12-12T06:26:55.072Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$N0ZR1oR0bxaJ9XS5oDEO9g$3vUZvT+YIMGJKSc5y169ktRjuXNQ2gs2fE7OOM6L83A",
+		"phoneNumber": "+6112341234",
+		"profile": {
+			"bio": "“Specializing in grief and loss, offering person-centered and expressive arts therapy for healing.",
+			"qualifications": [],
+			"therapyAreas": [
+				"Anxiety",
+				"Play Therapy for Children",
+				"Couples Counseling",
+				"Academic Stress"
+			],
+			"therapyCategories": ["Humanistic Therapy", "Existential Therapy", "Family Therapy"],
+			"yearsOfExperience": 6
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": false
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": false
+			},
+			"detectedUserTimezone": "Asia/Hong_Kong",
+			"enable2Fa": false,
+			"therapistProfileTooltipTour": {
+				"showAboutMeTour": true,
+				"showAvailabilityTour": true,
+				"showBankDetailsTour": true,
+				"showExperienceTour": true,
+				"showIntroductionTour": true,
+				"showNavigationTour": true,
+				"showRatesTour": true
+			}
+		},
+		"rates": {
+			"amount": "55"
+		},
+        "nextAvailableDate": "Jan 11, 2024",
+        "nextAvailableTime": "18:00 pm",
+		"updatedAt": "2023-12-12T06:26:55.020Z"
+	},
+	{
+		"avatarUrl": "data:image/jpeg;base64,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",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-11T03:44:58.214Z",
+		"demographic": {
+			"location": "Australia",
+			"mainLanguage": ["English"]
+		},
+		"email": "jkscheung@emotecare.com",
+		"sex": "Male",
+		"failedLoginAttempts": 0,
+		"firstName": "Carter",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:ht5lwxi0r26kliloc7hoceb",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastFailedLoginAt": "2023-12-12T07:50:06.370Z",
+		"lastName": "Ekstrom Bothman",
+		"lastSignedInAt": "2023-12-11T03:44:58.304Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$w3oArpe6Z5NVnQYGaoTa+Q$ouEnPYKmlLlx9D3jHg233ZNkighoJZXvrMcHEaKBZqo",
+		"phoneNumber": "+6112345678",
+		"profile": {
+			"bio": "Strengthening relationships through effective communication and conflict resolution. Draws from Emotionally Focused Therapy (EFT) and Gottman Meth",
+			"city": "Toronto",
+			"country": "Canada",
+			"imageUrls": [],
+			"qualifications": [],
+			"therapyAreas": [
+				"Academic Stress",
+				"Couples Counseling",
+				"Couples and Relationship Counseling",
+				"Anxiety"
+			],
+			"therapyCategories": ["Humanistic Therapy", "Group Therapy", "Art Therapy", "Music Therapy"],
+			"timeZone": "Europe/London",
+			"topAreas": [
+				"Anxiety and Panic Disorders",
+				"Trauma and PTSD",
+				"Couples and Relationship Counseling",
+				"Life coaching"
+			],
+			"yearsOfExperience": 19
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": false
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": false
+			},
+			"detectedUserTimezone": "Asia/Hong_Kong",
+			"enable2Fa": false,
+			"therapistProfileTooltipTour": {
+				"showAboutMeTour": true,
+				"showAvailabilityTour": true,
+				"showBankDetailsTour": true,
+				"showExperienceTour": true,
+				"showIntroductionTour": true,
+				"showNavigationTour": true,
+				"showRatesTour": true
+			}
+		},
+		"rates": {
+			"amount": "64"
+		},
+        "nextAvailableDate": "Jan 5, 2024",
+        "nextAvailableTime": "11:00 am",
+		"updatedAt": "2023-12-14T03:15:55.829Z"
+	},
+	{
+		"avatarUrl": "data:image/jpeg;base64,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",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-08T13:22:48.577Z",
+		"demographic": {
+			"location": "United Kingdom",
+			"mainLanguage": ["English, Mandarin"]
+		},
+		"email": "lisachen@gmail.com",
+		"sex": "Male",
+		"failedLoginAttempts": 0,
+		"firstName": "Lisa",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:pze3yx4ajueqym7z1ha1lc",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastName": "Chen",
+		"lastSignedInAt": "2023-12-08T13:22:48.662Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$+wzsf+1+9yjS3zw0zY+3tw$ppoKHAgYCIQtMdhmRi1z+KhZtEeaKhq04NpbX9yV92Q",
+		"phoneNumber": "+61890",
+		"profile": {
+			"bio": "Creating a safe space for young minds to express themselves and grow emotionally. Utilizes play therapy, CBT, and family systems approaches.",
+			"qualifications": [],
+			"therapyAreas": ["Couples Counseling", "Play Therapy for Children", "Anxiety"],
+			"therapyCategories": ["Humanistic Therapy", "Existential Therapy", "Family Therapy"],
+			"yearsOfExperience": 6
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": true
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": true
+			},
+			"detectedUserTimezone": "Africa/Lagos",
+			"enable2Fa": false,
+			"privacy": {
+				"shareAge": false,
+				"shareBirthday": false,
+				"shareEthnicity": false,
+				"shareFaith": false,
+				"shareGender": false,
+				"shareNotes": false,
+				"shareSexuality": false
+			}
+		},
+		"rates": {
+			"amount": "55"
+		},
+		"nextAvailableDate": "Jan 11, 2024",
+        "nextAvailableTime": "16:00 pm",
+		"updatedAt": "2023-12-08T13:22:48.614Z"
+	},
+	{
+		"avatarUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ55_7obq5FWIlu9qegpQ16LgR1zFtcvX1Egw&usqp=CAU",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-12T06:26:54.982Z",
+		"demographic": {
+			"location": "United Kingdom",
+			"mainLanguage": ["English, Italian"]
+		},
+		"email": "grethentroff@emotecare.com",
+		"sex": "Male",
+		"failedLoginAttempts": 0,
+		"firstName": "Gretchen",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:y5zgz4n6av6mx13foe6egt",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastFailedLoginAt": "2023-12-12T06:52:47.677Z",
+		"lastName": "Torff",
+		"lastSignedInAt": "2023-12-12T06:26:55.072Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$N0ZR1oR0bxaJ9XS5oDEO9g$3vUZvT+YIMGJKSc5y169ktRjuXNQ2gs2fE7OOM6L83A",
+		"phoneNumber": "+6112341234",
+		"profile": {
+			"bio": "Empowering you to achieve your life goals, improve well-being, and find balance. Uses a client-centered approach, positive psychology, and goal setting",
+			"qualifications": [],
+			"therapyAreas": ["Goal Setting", "Couples Counseling"],
+			"therapyCategories": ["Group Therapy", "Art Therapy", "Music Therapy"],
+			"yearsOfExperience": 4
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": false
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": false
+			},
+			"detectedUserTimezone": "Asia/Hong_Kong",
+			"enable2Fa": false,
+			"therapistProfileTooltipTour": {
+				"showAboutMeTour": true,
+				"showAvailabilityTour": true,
+				"showBankDetailsTour": true,
+				"showExperienceTour": true,
+				"showIntroductionTour": true,
+				"showNavigationTour": true,
+				"showRatesTour": true
+			}
+		},
+		"rates": {
+			"amount": "49"
+		},
+        "nextAvailableDate": "Jan 3, 2024",
+        "nextAvailableTime": "8:30 am",
+		"updatedAt": "2023-12-12T06:26:55.020Z"
+	},
+	{
+		"avatarUrl": "data:image/jpeg;base64,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",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-11T03:44:58.214Z",
+		"demographic": {
+			"location": "United States",
+			"mainLanguage": ["English, French"]
+		},
+		"email": "marcussaris@emotecare.com",
+		"sex": "Male",
+		"failedLoginAttempts": 0,
+		"firstName": "Marcus",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:ht5lwxi0r26kliloc7homs",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastFailedLoginAt": "2023-12-12T07:50:06.370Z",
+		"lastName": "Saris",
+		"lastSignedInAt": "2023-12-11T03:44:58.304Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$w3oArpe6Z5NVnQYGaoTa+Q$ouEnPYKmlLlx9D3jHg233ZNkighoJZXvrMcHEaKBZqo",
+		"phoneNumber": "+6112345678",
+		"profile": {
+			"bio": "Guiding individuals on the path to recovery and sobriety with compassion and expertise. Utilizes a holistic approach, blending CBT and 12-Step principles",
+			"city": "Toronto",
+			"country": "Canada",
+			"imageUrls": [],
+			"qualifications": [],
+			"therapyAreas": ["Addiction Recovery", "Relapse Prevention", "Anxiety"],
+			"therapyCategories": [
+				"Cognitive Behavioral Therapy (CBT)",
+				"Psychodynamic Therapy",
+				"Mindfulness-Based Therapy",
+				"Dialectical Behavior Therapy (DBT)"
+			],
+			"timeZone": "Europe/London",
+			"topAreas": [
+				"Anxiety and Panic Disorders",
+				"Trauma and PTSD",
+				"Couples and Relationship Counseling"
+			],
+			"yearsOfExperience": 4
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": false
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": false
+			},
+			"detectedUserTimezone": "Asia/Hong_Kong",
+			"enable2Fa": false,
+			"therapistProfileTooltipTour": {
+				"showAboutMeTour": true,
+				"showAvailabilityTour": true,
+				"showBankDetailsTour": true,
+				"showExperienceTour": true,
+				"showIntroductionTour": true,
+				"showNavigationTour": true,
+				"showRatesTour": true
+			}
+		},
+		"rates": {
+			"amount": "51"
+		},
+        "nextAvailableDate": "Jan 10, 2024",
+        "nextAvailableTime": "10:00 am",
+		"updatedAt": "2023-12-14T03:15:55.829Z"
+	},
+	{
+		"avatarUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU9ljG77Y3ahbB4U98P8coDU2DwDh6vFbbRw&usqp=CAU",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-08T13:22:48.577Z",
+		"demographic": {
+			"location": "Canada",
+			"mainLanguage": ["English, German"]
+		},
+		"email": "sophiapersely@gmail.com",
+		"sex": "Female",
+		"failedLoginAttempts": 0,
+		"firstName": "Sophia",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:pze3yx4ajueqym7z1ha1rp",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastName": "Persely",
+		"lastSignedInAt": "2023-12-08T13:22:48.662Zsp",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$+wzsf+1+9yjS3zw0zY+3tw$ppoKHAgYCIQtMdhmRi1z+KhZtEeaKhq04NpbX9yV92Q",
+		"phoneNumber": "+61890",
+		"profile": {
+			"bio": "Compassionate listener, specializing in anxiety and trauma. Integrates CBT and mindfulness to foster healing and personal growth.",
+			"qualifications": [],
+			"therapyAreas": [
+				"Play Therapy for Children",
+				"Couples Counseling",
+				"Anxiety",
+				"Academic Stress"
+			],
+			"therapyCategories": [
+				"Cognitive Behavioral Therapy (CBT)",
+				"Psychodynamic Therapy",
+				"Mindfulness-Based Therapy",
+				"Dialectical Behavior Therapy (DBT)"
+			],
+			"yearsOfExperience": 9
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": true
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": true
+			},
+			"detectedUserTimezone": "Africa/Lagos",
+			"enable2Fa": false,
+			"privacy": {
+				"shareAge": false,
+				"shareBirthday": false,
+				"shareEthnicity": false,
+				"shareFaith": false,
+				"shareGender": false,
+				"shareNotes": false,
+				"shareSexuality": false
+			}
+		},
+		"rates": {
+			"amount": "57"
+		},
+        "nextAvailableDate": "Jan 9, 2024",
+        "nextAvailableTime": "14:00 pm",
+		"updatedAt": "2023-12-08T13:22:48.614Z"
+	},
+	{
+		"avatarUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvC_LnPKKnXxBnSTUDEzgcZ-g4j13CCcawcA&usqp=CAU",
+		"birthday": "1990-01-01",
+		"createdAt": "2023-12-12T06:26:54.982Z",
+		"demographic": {
+			"location": "Spain",
+			"mainLanguage": ["English, Punjabi"]
+		},
+		"email": "vasukilisa@emotecare.com",
+		"sex": "Female",
+		"failedLoginAttempts": 0,
+		"firstName": "Vasuki",
+		"hasAgreedToTerms": true,
+		"hasFinishedTour": false,
+		"id": "user:y5zgz4n6av6mx13foe6evl",
+		"keys": {
+			"encPii": "encrypedPIIkey",
+			"encPriv": "encryptedPrivateKey",
+			"pub": "publicKey"
+		},
+		"lastFailedLoginAt": "2023-12-12T06:52:47.677Z",
+		"lastName": "Lisa",
+		"lastSignedInAt": "2023-12-12T06:26:55.072Z",
+		"pass": "$argon2id$v=19$m=19456,t=2,p=1$N0ZR1oR0bxaJ9XS5oDEO9g$3vUZvT+YIMGJKSc5y169ktRjuXNQ2gs2fE7OOM6L83A",
+		"phoneNumber": "+6112341234",
+		"profile": {
+			"bio": "Empowering you to achieve your life goals, improve well-being, and find balance. Uses a client-centered approach, positive psychology, and goal setting",
+			"qualifications": [],
+			"therapyAreas": [
+				"Play Therapy for Children",
+				"Couples Counseling",
+				"Anxiety",
+				"Academic Stress"
+			],
+			"therapyCategories": ["Humanistic Therapy", "Existential Therapy", "Family Therapy"],
+			"yearsOfExperience": 8
+		},
+		"role": "therapist",
+		"appointmentType": "Individual 50-min session",
+		"settings": {
+			"appointmentReminder": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"reminderOptions": [24, 12, 1],
+				"smsNotification": false
+			},
+			"bookingConfirmationNotification": {
+				"emailNotification": true,
+				"inAppNotification": true,
+				"smsNotification": false
+			},
+			"detectedUserTimezone": "Asia/Hong_Kong",
+			"enable2Fa": false,
+			"therapistProfileTooltipTour": {
+				"showAboutMeTour": true,
+				"showAvailabilityTour": true,
+				"showBankDetailsTour": true,
+				"showExperienceTour": true,
+				"showIntroductionTour": true,
+				"showNavigationTour": true,
+				"showRatesTour": true
+			}
+		},
+		"rates": {
+			"amount": "62"
+		},
+        "nextAvailableDate": "Jan 19, 2024",
+        "nextAvailableTime": "09:00 am",
+		"updatedAt": "2023-12-12T06:26:55.020Z"
+	}
+]

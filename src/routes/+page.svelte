@@ -1,6 +1,5 @@
 <script>
 	import dayjs from 'dayjs';
-	import { onMount } from 'svelte';
 	import Dropdown from '../components/Dropdown.svelte';
 	import Filters from '../components/Filters.svelte';
 	import therapistsData from '../data/therapist-data.json'; // added new data items to each object: appointmentType, sex, rates, nextAvailableDate, nextAvailableTime
@@ -57,6 +56,7 @@
 	function sortDisplayedItems() {
 		// Set loading state to true
 		isLoading.set(() => true);
+
 		const sortKey = selectedSortOption.value;
 		const profiles = [...$filteredTherapistProfiles];
 
@@ -91,17 +91,13 @@
 		// Set loading state to false
 		setTimeout(() => {
 			isLoading.set(false);
-		}, 500);
+		}, 200);
 	}
 
 	function handleSortChange(option) {
 		selectedSortOption = option;
 		sortDisplayedItems();
 	}
-
-	onMount(() => {
-		sortDisplayedItems();
-	});
 
 	// Subscribe to changes in the store
 	$: {
@@ -110,8 +106,6 @@
 		$selectedFilters = $selectedFilters;
 		$filterCount = $filterCount;
 	}
-
-	console.log({ isLoading: $isLoading });
 </script>
 
 <div

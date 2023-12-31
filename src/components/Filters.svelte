@@ -4,6 +4,7 @@
 	import SearchInput from './SearchInput.svelte';
 	import FilterItem from './FilterItem.svelte';
 	import DoubleRangeSlider from './DoubleRangeSlider.svelte';
+	import { scrollToTheTop } from '$lib/helpers';
 	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
 
 	export let isMobile = false;
@@ -54,10 +55,6 @@
 		}
 	};
 
-	function scrollToTheTop() {
-		document.body.scrollIntoView();
-	}
-
 	function filteredItemCount() {
 		let count = 0;
 		let filters = $selectedFilters;
@@ -78,6 +75,7 @@
 	// Function to apply filters to the profiles
 	function applyFilters() {
 		isLoading.set(() => true);
+
 		let filteredProfiles = [...profiles];
 
 		// Filter by appointment type
@@ -151,20 +149,17 @@
 
 		// Update filter count
 		filteredItemCount();
-		
+
 		// Update the profiles variable with the filtered results
 		filteredTherapistProfiles.update(() => filteredProfiles);
-		
+
 		// Sort displayed result
 		sortDisplayedItems();
 
 		setTimeout(() => {
 			// Set loading state to false
 			isLoading.set(false);
-		}, 500);
-
-		// Scroll to the top of the page
-		scrollToTheTop();
+		}, 200);
 	}
 
 	// Function to toggle a filter value
@@ -183,6 +178,11 @@
 
 	onMount(() => {
 		applyFilters();
+
+		setTimeout(() => {
+			// Scroll to the top of the page
+			scrollToTheTop();
+		}, 200);
 	});
 </script>
 

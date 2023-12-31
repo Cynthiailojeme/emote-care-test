@@ -7,8 +7,12 @@ import countries from '../data/countries.json';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
+export function scrollToTheTop() {
+	document.body.scrollIntoView();
+}
+
 export function getGMTOffset(countryName) {
-	const formattedCountryName = countryName.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+	const formattedCountryName = countryName?.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 	const country = Object.values(countries).find((country) => country.name === formattedCountryName);
 	const timeZone = country ? country.timezones[0] : null;
 
@@ -31,4 +35,14 @@ export function getGMTOffset(countryName) {
 
 export function capitalizeFirstLetter(str) {
 	return str ? str[0].toUpperCase() + str.slice(1) : '-';
+}
+
+export function getCountryAcronym(country) {
+	const countryMappings = {
+		'United States': 'USA',
+		'United Kingdom': 'UK'
+	};
+
+	const countryName = countryMappings[country] || country;
+	return countryName;
 }

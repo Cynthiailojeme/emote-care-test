@@ -1,5 +1,5 @@
 <script>
-	import { capitalizeFirstLetter, getGMTOffset } from '$lib/helpers';
+	import { capitalizeFirstLetter, getGMTOffset, getCountryAcronym } from '$lib/helpers';
 	import dayjs from 'dayjs';
 	import Button from './Button.svelte';
 
@@ -10,16 +10,6 @@
 		therapist?.profile?.therapyAreas?.length <= 3 ? lgScreenDisplay : 1;
 	const undisplayedTherapistAreas =
 		therapist?.profile?.therapyAreas.length - displayedTherapistAreas;
-
-	function getCountryAcronym(country) {
-		const countryMappings = {
-			'United States': 'USA',
-			'United Kingdom': 'UK'
-		};
-
-		const countryName = countryMappings[country] || country;
-		return countryName;
-	}
 </script>
 
 <div
@@ -32,7 +22,7 @@
 		<div class="flex justify-between items-start">
 			<div class="flex gap-4 sm:gap-6 items-center">
 				<div
-					class="relative w-[3.75rem] h-[3.75rem] rounded-full sm:w-[5.5625rem] sm:h-[5.5625rem] inline-flex items-center justify-center"
+					class="relative w-[3.75rem] h-[3.75rem] rounded-full sm:w-[5.5625rem] sm:h-[5.5625rem] lg-screens:w-[6.25rem] lg-screens:h-[6.25rem] inline-flex items-center justify-center"
 				>
 					<img
 						src={therapist.avatarUrl}
@@ -78,7 +68,9 @@
 								alt="map icon"
 								class="h-[0.9375rem] w-[0.9375rem] sm:h-5 sm:w-5"
 							/>
-							<p>
+							<p
+								class="text-stroke-dark font-poppins text-[0.75rem] sm:text-[1rem] font-medium leading-5"
+							>
 								{getCountryAcronym(therapist?.demographic?.location) ?? 'N/A'},
 								{getGMTOffset(therapist?.demographic?.location)}
 							</p>
@@ -196,8 +188,8 @@
 
 			<button
 				type="button"
-				class="text-accent-dark-blue font-poppins text-[0.875rem] mt-4 sm:text-base sm:mt-0"
-				><a href="/{therapist?.id}"
+				class="text-accent-dark-blue font-poppins text-[0.875rem] mt-4 sm:text-base sm:mt-0 hover:underline"
+				><a href="/{therapist?.id}" title="View profile"
 					>View <span class="hidden lg-screens:inline-flex">full</span> profile</a
 				></button
 			>

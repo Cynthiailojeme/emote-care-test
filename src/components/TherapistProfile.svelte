@@ -48,7 +48,7 @@
 
 				<div class="flex flex-col">
 					<h2
-						class="text-primary-dark font-poppins text-[1.125rem] lg-screens:text-[1.5rem] mb-0 sm:text-[1.375rem] sm:mb-1 font-semibold leading-5 inline-flex gap-2 flex-col"
+						class="text-primary-dark font-poppins text-[1.125rem] lg-screens:text-[1.5rem] mb-0 sm:text-[1.375rem] sm:mb-1 font-semibold leading-5 inline-flex gap-2 flex-col sm:flex-row"
 					>
 						<span>{capitalizeFirstLetter(therapist?.firstName)}</span>
 						<span>{capitalizeFirstLetter(therapist?.lastName)}</span>
@@ -211,9 +211,10 @@
 		<div class="flex flex-row gap-4 sm:flex-col">
 			<div class="text-left sm:text-center">
 				<p
-					class="text-primary-dark text-base font-semibold font-poppins leading-[1.3125rem] lg-screens:text-[1.75rem] sm:text-[1.375rem] sm:font-medium"
+					class="text-primary-dark text-base font-semibold mb-1 sm:mb-0 font-poppins leading-[1.3125rem] lg-screens:text-[1.75rem] sm:text-[1.375rem] sm:font-medium"
 				>
-					£{therapist.rates.amount} GBP
+					<span class="hidden sm:inline-flex">£{therapist.rates.amount} GBP</span>
+					<span class="sm:hidden inline-flex">£{therapist.rates.amount}.00</span>
 				</p>
 				<p
 					class="hidden text-primary-dark font-poppins text-base font-medium leading-normal tracking-tight sm:block"
@@ -229,7 +230,7 @@
 
 			<div class="text-left sm:text-center">
 				<h5
-					class="text-stroke-dark font-poppins text-[0.75rem] sm:text-base font-medium leading-normal tracking-wide"
+					class="text-stroke-dark font-poppins text-[0.75rem] mb-1 sm:mb-0 sm:text-base font-medium leading-normal tracking-wide"
 				>
 					Next available <span class="inline-flex sm:hidden">date</span>
 				</h5>

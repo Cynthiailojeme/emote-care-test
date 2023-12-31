@@ -2,21 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	scroll-behavior: smooth;
+
+	--accent-green-light-brand: #bfd962;
+	--accent-green-light-bg: #ECF2D5;
+	--primary-dark: #203136;
+	--stroke-cards: #F1F1F1;
+}
+
 :root {
 	--range-slider: #d7dada; /* slider main background color */
 	--range-handle-inactive: #99a2a2; /* inactive handle color */
-	--range-handle: #bfd962; /* non-focussed handle color */
-	--range-handle-focus: #bfd962; /* focussed handle color */
-	--range-handle-border: #203136; /* handle border color */
+	--range-handle: var(--accent-green-light-brand); /* non-focussed handle color */
+	--range-handle-focus: var(--accent-green-light-brand); /* focussed handle color */
+	--range-handle-border: var(--primary-dark); /* handle border color */
 	--range-range-inactive: #d7dada; /* inactive range bar background color */
-	--range-range: #bfd962; /* active range background color */
-	--range-float-inactive: #203136; /* inactive floating label background color */
-	--range-float: #203136; /* floating label background color */
+	--range-range: var(--accent-green-light-brand); /* active range background color */
+	--range-float-inactive: var(--primary-dark); /* inactive floating label background color */
+	--range-float: var(--primary-dark); /* floating label background color */
 	--range-float-text: white; /* text color on floating label */
-}
-
-html {
-	scroll-behavior: smooth;
 }
 
 .rangeSlider {
@@ -25,6 +30,31 @@ html {
 
 .rangeSlider.range:not(.min):not(.max) .rangeNub {
 	border-radius: 10em !important;
+}
+
+.rangeSlider {
+    margin: 1em 1.25em !important;
+}
+
+.rangeFloat {
+	/* Added important to override custom styes */
+	opacity: 1 !important;
+	display: inline-flex !important;
+	height: 1.61006rem !important;
+	padding: 0.125rem 0.5rem !important;
+	justify-content: center !important;
+	align-items: center !important;
+	border-radius: 1rem !important;
+	background: var(--primary-dark) !important;
+	font-size: 0.875rem !important;
+	font-style: normal !important;
+	font-weight: 500 !important;
+	line-height: 1.25rem !important;
+}
+
+.rangeNub {
+	background-color: white !important;
+	border: 1px solid var(--primary-dark) !important;
 }
 
 /* Chrome, Safari, Edge, Opera */

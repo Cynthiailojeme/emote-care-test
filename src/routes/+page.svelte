@@ -5,8 +5,9 @@
 	import Filters from '../components/Filters.svelte';
 	import therapistsData from '../data/therapist-data.json'; // added new data items to each object: appointmentType, sex, rates, nextAvailableDate, nextAvailableTime
 	import TherapistProfile from '../components/TherapistProfile.svelte';
-	import { filteredTherapistProfiles, selectedFilters } from '../lib/store';
+	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
 	import MobileFilterButtons from '../components/MobileFilterButtons.svelte';
+	import Loader from '../components/Loader.svelte';
 
 	let sortOptions = [
 		{ label: 'Name: A to Z', value: 'name-asc' },
@@ -45,13 +46,17 @@
 			language: []
 		});
 		filteredTherapistProfiles.update(() => therapistsData);
+		filterCount.update(() => 0);
 	}
 
 	function clearAllSortings() {
 		filteredTherapistProfiles.update(() => therapistsData);
+		selectedSortOption = null;
 	}
 
 	function sortDisplayedItems() {
+		// Set loading state to true
+		isLoading.set(() => true);
 		const sortKey = selectedSortOption.value;
 		const profiles = [...$filteredTherapistProfiles];
 
@@ -82,6 +87,11 @@
 		}
 
 		filteredTherapistProfiles.update(() => profiles);
+
+		// Set loading state to false
+		setTimeout(() => {
+			isLoading.set(false);
+		}, 500);
 	}
 
 	function handleSortChange(option) {
@@ -93,11 +103,15 @@
 		sortDisplayedItems();
 	});
 
-	// Subscribe to changes in the filteredTherapistProfiles store
+	// Subscribe to changes in the store
 	$: {
+		$isLoading = $isLoading;
 		$filteredTherapistProfiles = $filteredTherapistProfiles;
 		$selectedFilters = $selectedFilters;
+		$filterCount = $filterCount;
 	}
+
+	console.log({ isLoading: $isLoading });
 </script>
 
 <div
@@ -112,12 +126,6 @@
 				Let’s discover your next therapist
 			</p>
 
-			<p
-				class="sm:hidden text-primary-dark font-poppins text-[1.25rem] font-semibold leading-normal"
-			>
-				Discover your next therapist
-			</p>
-
 			<div class="hidden sm:flex">
 				<Dropdown
 					options={sortOptions}
@@ -125,12 +133,17 @@
 					onSelectionChange={handleSortChange}
 				/>
 			</div>
+		</div>
 
+		<div class="sm:hidden flex sm:items-center justify-between flex-col">
+			<p class="text-primary-dark font-poppins text-[1.25rem] font-semibold leading-normal">
+				Discover your next therapist
+			</p>
 			<!-- mobile filter buttons -->
 			<MobileFilterButtons
 				resetAllFilters={clearAllFilters}
 				resetAllSortings={clearAllSortings}
-				selectedOption={null}
+				selectedOption={selectedSortOption}
 				onSelectionChange={handleSortChange}
 				options={sortOptions}
 			/>
@@ -204,13 +217,19 @@
 		</div>
 
 		<!-- therapists section (profiles) -->
-		{#if $filteredTherapistProfiles?.length > 0}
+		{#if $isLoading}
+			<Loader />
+		{/if}
+
+		{#if !$isLoading && $filteredTherapistProfiles?.length > 0}
 			{#each $filteredTherapistProfiles as therapist}
 				<TherapistProfile {therapist} />
 			{/each}
-		{:else}
+		{/if}
+
+		{#if !$isLoading && $filteredTherapistProfiles?.length === 0}
 			<p
-				class="mt-8 text-primary-dark font-poppins text-[1rem] lg-screens:text-[1.375rem] sm:text-[1.125rem] mb-1 font-semibold leading-5"
+				class="mt-6 text-primary-dark font-poppins text-[1rem] lg-screens:text-[1.375rem] sm:text-[1.125rem] mb-1 font-medium leading-5"
 			>
 				No matching profile found
 			</p>
@@ -237,7 +256,7 @@
 
 		<!-- filter section options -->
 		<div class="static">
-			<Filters profiles={therapistsData} />
+			<Filters profiles={therapistsData} {sortDisplayedItems} />
 		</div>
 	</section>
 </div>

@@ -6,7 +6,7 @@
 	export let max = 200;
 </script>
 
-<div>
+<div class="mt-12">
 	<RangeSlider
 		bind:values
 		range

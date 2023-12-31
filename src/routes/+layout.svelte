@@ -33,7 +33,7 @@
 	</div>
 	<!-- Scroll to top button: ends -->
 
-	<Header {innerHeight} />
+	<Header />
 	<Navbar />
 	<slot />
 	<Footer />

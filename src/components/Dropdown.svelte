@@ -33,13 +33,18 @@
 		>
 			{selectedOption ? `Sort by: ${getLabelText(selectedOption)}` : 'Select an option'}
 			{#if selectedOption?.value.includes('desc')}
-				<img src="/assets/icons/arrow-down.svg" alt="Decending order" />
+				<img
+					src="/assets/icons/arrow-down.svg"
+					alt="Decending order"
+					title={selectedOption.label}
+				/>
 			{/if}
 
 			{#if selectedOption?.value.includes('asc')}
 				<img
 					src="/assets/icons/arrow-down.svg"
 					alt="Ascending order"
+					title={selectedOption.label}
 					style="transform: scaleY(-1);"
 				/>
 			{/if}

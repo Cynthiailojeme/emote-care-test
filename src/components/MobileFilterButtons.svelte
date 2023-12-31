@@ -1,6 +1,7 @@
 <script>
 	import Filters from './Filters.svelte';
 	import therapistsData from '../data/therapist-data.json';
+	import { filterCount } from '../lib/store';
 
 	export let resetAllSortings;
 	export let resetAllFilters;
@@ -39,17 +40,23 @@
 	<div class="flex justify-between gap-3 sm:hidden my-4">
 		<button
 			on:click={openSortModal}
-			class="inline-flex w-full h-10 px-2 gap-2 flex-1 rounded-full py-2 bg-white shadow-md border border-stone-300 justify-center items-center"
+			class="inline-flex w-full h-10 px-4 gap-2 rounded-full py-2 bg-white shadow-md border border-stone-300 justify-center items-center text-primary-dark font-poppins text-[0.875rem] font-medium leading-5"
 		>
-			{selectedOption ? getDisplayedSelection(selectedOption) : 'Sort by'}
-
-			<img src={'/assets/icons/chevron-left.svg'} alt="Open dropdown" />
+			<span class="truncate"
+				>{selectedOption ? getDisplayedSelection(selectedOption) : 'Sort by'}</span
+			>
+			<img src={'/assets/icons/chevron-left.svg'} alt="Open dropdown" class="ml-2" />
 		</button>
 		<button
 			on:click={openFilterModal}
-			class="inline-flex w-full h-10 px-6 gap-2 flex-1 rounded-full py-2 bg-white shadow-md border border-stone-300 justify-center items-center"
+			class="inline-flex w-full h-10 px-4 gap-2 rounded-full py-2 bg-white shadow-md border border-stone-300 justify-center items-center text-primary-dark font-poppins text-[0.875rem] font-medium leading-5"
 		>
-			Filter by
+			<span class="truncate">{$filterCount > 0 ? 'Filters' : 'Filter by'}</span>
+			{#if $filterCount > 0}
+				<div class="p-1.5 px-2.5 items-center rounded-[1rem] bg-stroke-cards">
+					{$filterCount}
+				</div>
+			{/if}
 		</button>
 	</div>
 
@@ -74,7 +81,7 @@
 					class="text-black"
 					on:click={() => {
 						showSortModal = false;
-						resetAllSortings;
+						resetAllSortings();
 					}}>Reset all</button
 				>
 			</div>
@@ -127,9 +134,15 @@
 							style="transform: scaleX(-1); filter: grayscale(100%) brightness(0);"
 						/>
 					</button>
-					Filters
+					Filter by
 				</div>
-				<button class="text-black" on:click={resetAllFilters}>Reset all</button>
+				<button
+					class="text-black"
+					on:click={() => {
+						showFilterModal = false;
+						resetAllFilters();
+					}}>Reset all</button
+				>
 			</div>
 
 			<Filters profiles={therapistsData} isMobile={true} />

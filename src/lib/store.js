@@ -12,3 +12,8 @@ export const selectedFilters = writable({
 });
 
 export const filteredTherapistProfiles = writable([]);
+
+export const filterCount = writable(0)
+
+export const isLoading = writable(true)
+

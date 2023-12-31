@@ -32,6 +32,10 @@ html {
 	border-radius: 10em !important;
 }
 
+.rangeSlider {
+    margin: 1em 1.25em !important;
+}
+
 .rangeFloat {
 	/* Added important to override custom styes */
 	opacity: 1 !important;

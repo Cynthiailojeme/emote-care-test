@@ -21,7 +21,7 @@
 	>
 		<button
 			on:click={() => scrollToTheTop()}
-			class="ml-auto rounded-md bg-white px-1 sm:px-2 shadow-md cursor-pointer aspect-square grid place-items-center"
+			class="ml-auto rounded-md bg-white px-1 sm:px-2 shadow-md cursor-pointer aspect-square flex items-center justify-center"
 		>
 			<img
 				src="assets/icons/arrow-down.svg"

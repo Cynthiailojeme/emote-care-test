@@ -25,7 +25,7 @@
 </script>
 
 <footer
-	class="hidden sm:flex flex-col px-4 sm:px-6 md:px-12 lg:px-16 xl:px-28 xl:py-[3.75rem] sm:py-6 gap-4 self-stretch mt-auto bg-accent-green-light-brand"
+	class="hidden lg:flex flex-col px-4 sm:px-6 md:px-12 lg:px-16 xl:px-28 xl:py-[3.75rem] sm:py-6 gap-4 self-stretch mt-auto bg-accent-green-light-brand"
 >
 	<div class="flex justify-between items-center">
 		<div class="text-center">

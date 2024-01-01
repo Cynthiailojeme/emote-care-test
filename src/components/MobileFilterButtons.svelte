@@ -37,7 +37,7 @@
 </script>
 
 <div class="relative">
-	<div class="flex justify-between gap-3 sm:hidden my-4">
+	<div class="flex justify-between gap-3 lg:hidden my-4">
 		<button
 			on:click={openSortModal}
 			class="inline-flex w-full h-10 px-4 gap-2 rounded-full py-2 bg-white shadow-md border border-stone-300 justify-center items-center text-primary-dark font-poppins text-[0.875rem] font-medium leading-5"

@@ -13,13 +13,20 @@ export function scrollToTheTop() {
 
 export function scrollToLeftOrRight(id, scrollDirection) {
 	const container = document.getElementById(id);
-	container.scrollBy({ left: scrollDirection * 200, behavior: 'smooth' });
+	const maxScrollLeft = container.scrollWidth - container.clientWidth;
+	// Check if the user has reached the end of the scroll in the specified direction
+	if (container.scrollLeft === maxScrollLeft) {
+		scrollDirection = 1
+		container.scrollBy({ left: -5 * 200, behavior: 'smooth' });
+	} else {
+		scrollDirection = -1
+		container.scrollBy({ left: 1 * 200, behavior: 'smooth' });
+	}
 }
 
 export function scrollToTopOrBottom(id) {
 	const scrollHeight =
-		document.getElementById(id).scrollHeight -
-		document.getElementById(id).innerHeight;
+		document.getElementById(id).scrollHeight - document.getElementById(id).innerHeight;
 
 	// Check if the user is closer to the top or bottom and scroll accordingly
 	if (document.getElementById(id).scrollY < scrollHeight / 2) {

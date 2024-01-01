@@ -95,7 +95,6 @@
 	let scrollDirection = -1; // 1 for right, -1 for left
 
 	function handleScrollButtonClick() {
-		scrollDirection *= -1; // Toggle between 1 and -1
 		scrollToLeftOrRight('introVideosContainer', scrollDirection);
 	}
 

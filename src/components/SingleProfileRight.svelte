@@ -66,7 +66,6 @@
 	let scrollDirection = -1; // 1 for right, -1 for left
 
 	function handleScrollButtonClick() {
-		scrollDirection *= -1; // Toggle between 1 and -1
 		scrollToLeftOrRight('calendarScrollContainer', scrollDirection);
 	}
 </script>
@@ -112,7 +111,9 @@
 			</div>
 		</div>
 
-		<div class="w-full text-left lg:text-center flex sm:flex-col flex-row gap-1 justify-between sm:justify-start">
+		<div
+			class="w-full text-left lg:text-center flex sm:flex-col flex-row gap-1 justify-between sm:justify-start"
+		>
 			<div
 				class="text-stroke-dark font-poppins text-[0.875rem] mb-1 sm:mb-0 sm:text-base font-medium leading-normal tracking-wide flex items-center"
 			>

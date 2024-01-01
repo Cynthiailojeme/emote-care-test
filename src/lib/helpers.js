@@ -11,6 +11,28 @@ export function scrollToTheTop() {
 	document.body.scrollIntoView();
 }
 
+export function scrollToLeftOrRight(id, scrollDirection) {
+	const container = document.getElementById(id);
+	container.scrollBy({ left: scrollDirection * 200, behavior: 'smooth' });
+}
+
+export function scrollToTopOrBottom(id) {
+	const scrollHeight =
+		document.getElementById(id).scrollHeight -
+		document.getElementById(id).innerHeight;
+
+	// Check if the user is closer to the top or bottom and scroll accordingly
+	if (document.getElementById(id).scrollY < scrollHeight / 2) {
+		// Scroll to the top
+		const container = document.getElementById(id);
+		container.scrollTo({ top: 0, behavior: 'smooth' });
+	} else {
+		// Scroll to the bottom
+		const container = document.getElementById(id);
+		container.scrollTo({ top: innerHeight, behavior: 'smooth' });
+	}
+}
+
 export function getGMTOffset(countryName) {
 	const formattedCountryName = countryName?.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 	const country = Object.values(countries).find((country) => country.name === formattedCountryName);
@@ -45,4 +67,14 @@ export function getCountryAcronym(country) {
 
 	const countryName = countryMappings[country] || country;
 	return countryName;
+}
+
+export function truncateText(originalText, wordLimit) {
+	const words = originalText.split(' ');
+
+	if (words.length > wordLimit) {
+		return words.slice(0, wordLimit).join(' ') + ' ...';
+	}
+
+	return originalText;
 }

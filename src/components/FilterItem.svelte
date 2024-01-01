@@ -10,7 +10,7 @@
 		<img
 			src="assets/icons/chevron-left.svg"
 			alt="dropdown icon"
-			style="transform: {isOpen ? `` : 'scaleY(-1)'}; filter: grayscale(80%) brightness(3);"
+			style="transform: {isOpen ? '' : 'scaleY(-1)'}; filter: grayscale(80%) brightness(3);"
 		/>
 	</button>
 

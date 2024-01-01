@@ -13,11 +13,11 @@
 </script>
 
 <div
-	class="flex flex-col sm:flex-row mt-6 shadow-md rounded-2xl sm:shadow-none transform hover:scale-102"
+	class="flex flex-col lg:flex-row mt-6 shadow-md rounded-2xl sm:shadow-none transform hover:scale-102"
 >
 	<!-- therapist profile information -->
 	<div
-		class="p-4 sm:p-8 bg-white border-stroke-cards w-full shadow-none sm:shadow-md rounded-t-2xl sm:rounded-2xl"
+		class="p-4 sm:p-8 bg-white border-stroke-cards w-full shadow-none sm:shadow-md rounded-t-2xl lg:rounded-2xl"
 	>
 		<div class="flex justify-between items-start">
 			<div class="flex gap-4 sm:gap-6 items-center">
@@ -147,7 +147,7 @@
 		</div>
 
 		<p
-			class="mt-4 mb-2 overflow-hidden line-clamp-2 max-h-[2.75rem] sm:max-h-[3rem] sm:my-6 text-primary-dark font-poppins text-[0.875rem] sm:text-base font-normal sm:leading-[1.25rem] tracking[-0.02rem]"
+			class="mt-4 mb-2 overflow-hidden line-clamp-2 max-h-[2.75rem] sm:max-h-[3rem] sm:my-6 text-primary-dark font-poppins text-[0.875rem] sm:text-base font-normal sm:leading-[1.25rem] tracking-[-0.02rem]"
 		>
 			{therapist?.profile?.bio}
 		</p>
@@ -198,39 +198,39 @@
 
 	<!-- therapist profile session rates -->
 	<div
-		class="p-4 pt-0 sm:p-8 bg-white sm:border-stroke-cards rounded-b-2xl shadow-none sm:shadow-md sm:rounded-2xl sm:min-w-[17.5rem] flex flex-col sm:justify-center"
+		class="p-4 pt-0 sm:p-8 bg-white lg:border-stroke-cards rounded-b-2xl shadow-none lg:shadow-md lg:rounded-2xl sm:min-w-[17.5rem] flex flex-col lg:justify-center"
 	>
-		<div class="flex flex-row gap-4 sm:flex-col">
-			<div class="text-left sm:text-center">
+		<div class="flex flex-row gap-4 lg:flex-col">
+			<div class="text-left lg:text-center">
 				<p
 					class="text-primary-dark text-base font-semibold mb-1 sm:mb-0 font-poppins leading-[1.3125rem] lg-screens:text-[1.75rem] sm:text-[1.375rem] sm:font-medium"
 				>
-					<span class="hidden sm:inline-flex">£{therapist.rates.amount} GBP</span>
-					<span class="sm:hidden inline-flex">£{therapist.rates.amount}.00</span>
+					<span class="hidden lg:inline-flex">£{therapist.rates.amount} GBP</span>
+					<span class="lg:hidden inline-flex">£{therapist.rates.amount}.00</span>
 				</p>
 				<p
-					class="hidden text-primary-dark font-poppins text-base font-medium leading-normal tracking-tight sm:block"
+					class="hidden text-primary-dark font-poppins text-base font-medium leading-normal tracking-tight lg:block"
 				>
 					per session
 				</p>
-				<p class="text-stroke-dark font-poppins text-xs font-medium leading-normal sm:hidden">
+				<p class="text-stroke-dark font-poppins text-xs font-medium leading-normal lg:hidden">
 					per adult session
 				</p>
 			</div>
 
-			<div class="block w-[0.0625rem] h-[2.1875rem] bg-gray-300 sm:hidden" />
+			<div class="block w-[0.0625rem] h-[2.1875rem] bg-gray-300 lg:hidden" />
 
-			<div class="text-left sm:text-center">
+			<div class="text-left lg:text-center">
 				<h5
 					class="text-stroke-dark font-poppins text-[0.75rem] mb-1 sm:mb-0 sm:text-base font-medium leading-normal tracking-wide"
 				>
-					Next available <span class="inline-flex sm:hidden">date</span>
+					Next available <span class="inline-flex lg:hidden">date</span>
 				</h5>
 				<div class="flex items-center justify-center">
 					<img
 						src="assets/icons/calendar.svg"
 						alt="calendar icon"
-						class="hidden sm:inline-flex mr-2"
+						class="hidden lg:inline-flex mr-2"
 					/>
 					<span
 						>{dayjs(therapist?.nextAvailableDate).isSame(dayjs(), 'day')

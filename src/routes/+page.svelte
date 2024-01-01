@@ -5,8 +5,11 @@
 	import therapistsData from '../data/therapist-data.json'; // added new data items to each object: appointmentType, sex, rates, nextAvailableDate, nextAvailableTime
 	import TherapistProfile from '../components/TherapistProfile.svelte';
 	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
+	import { scrollToLeftOrRight } from '$lib/helpers';
 	import MobileFilterButtons from '../components/MobileFilterButtons.svelte';
 	import Loader from '../components/Loader.svelte';
+
+	let isMobile;
 
 	let sortOptions = [
 		{ label: 'Name: A to Z', value: 'name-asc' },
@@ -18,20 +21,9 @@
 		{ label: 'Next available date', value: 'next-date' }
 	];
 
-	let selectedSortOption = { label: 'Year of experience: High to Low', value: 'exp-desc' };
-
-	let startIndex = 0;
-	let itemsPerPage = 7; // Number of items to show at a time
-
-	function scrollRight() {
-		const newIndex = startIndex + itemsPerPage;
-		startIndex = newIndex;
-	}
-
-	function scrollLeft() {
-		const newIndex = startIndex - itemsPerPage;
-		startIndex = Math.max(0, newIndex);
-	}
+	let selectedSortOption = isMobile
+		? null
+		: { label: 'Year of experience: High to Low', value: 'exp-desc' };
 
 	function clearAllFilters() {
 		selectedFilters.set({
@@ -99,6 +91,14 @@
 		sortDisplayedItems();
 	}
 
+	// Scroll implementation
+	let scrollDirection = -1; // 1 for right, -1 for left
+
+	function handleScrollButtonClick() {
+		scrollDirection *= -1; // Toggle between 1 and -1
+		scrollToLeftOrRight('introVideosContainer', scrollDirection);
+	}
+
 	// Subscribe to changes in the store
 	$: {
 		$isLoading = $isLoading;
@@ -109,18 +109,18 @@
 </script>
 
 <div
-	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 sm:py-10 flex justify-between gap-6"
+	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex justify-between flex-col lg:flex-row gap-6"
 >
-	<section class="max-w-[53.5rem] md:min-w-[53.5rem] lg-screens:min-w-[68.5rem] w-full">
+	<section class="max-w-[53.5rem] md:w-full lg:min-w-[53.5rem] lg-screens:min-w-[68.5rem] w-full">
 		<!-- therapists section header -->
 		<div class="flex sm:items-center justify-between flex-col sm:flex-row sm:mb-6">
 			<p
-				class="hidden sm:block text-primary-dark font-poppins text-[1.25rem] font-semibold leading-normal"
+				class="hidden lg:block text-primary-dark font-poppins text-[1.25rem] font-semibold leading-normal"
 			>
 				Let’s discover your next therapist
 			</p>
 
-			<div class="hidden sm:flex">
+			<div class="hidden lg:flex">
 				<Dropdown
 					options={sortOptions}
 					selectedOption={selectedSortOption}
@@ -129,7 +129,7 @@
 			</div>
 		</div>
 
-		<div class="sm:hidden flex sm:items-center justify-between flex-col">
+		<div class="lg:hidden flex lg:items-center justify-between flex-col">
 			<p class="text-primary-dark font-poppins text-[1.25rem] font-semibold leading-normal">
 				Discover your next therapist
 			</p>
@@ -137,7 +137,7 @@
 			<MobileFilterButtons
 				resetAllFilters={clearAllFilters}
 				resetAllSortings={clearAllSortings}
-				selectedOption={selectedSortOption}
+				selectedOption={null}
 				onSelectionChange={handleSortChange}
 				options={sortOptions}
 			/>
@@ -145,18 +145,25 @@
 
 		<!-- therapists section avatar -->
 		<div
-			class="relative min-h-auto w-full p-4 sm:p-8 rounded-lg sm:border sm:border-stroke-cards bg-warm sm:bg-white sm:shadow-md flex-col justify-start items-start gap-4 inline-flex overflow-x-auto sm:overflow-x-hidden"
+			class="relative min-h-auto w-full p-4 sm:p-8 rounded-lg sm:border sm:border-stroke-cards bg-warm sm:bg-white sm:shadow-md flex-col justify-start items-start gap-4 inline-flex"
 		>
 			<div class="text-primary-dark text-base font-semibold font-poppins">
 				30 second introduction videos
 			</div>
-			<div class="flex">
+			<div
+				class="flex w-full min-h-auto overflow-x-auto overflow-y-hidden sm:overflow-x-hidden"
+				id="introVideosContainer"
+			>
 				<div
-					class="w-[3.75rem] h-[3.75rem] lg-screens:w-[6.25rem] lg-screens:h-[6.25rem] sm:w-20 sm:h-20 mr-5 lg-screens:mr-8 sm:mr-8"
+					class="min-w-[3.75rem] h-[3.75rem] lg-screens:min-w-[6.25rem] lg-screens:h-[6.25rem] sm:min-w-20 sm:h-20 mr-5 lg-screens:mr-8 sm:mr-8"
 				>
 					<div class="w-full h-full bg-lime-300 rounded-full flex items-center justify-center">
 						<button>
-							<img src="assets/icons/rotate-cw.svg" alt="Refresh button" />
+							<img
+								src="assets/icons/rotate-cw.svg"
+								alt="Refresh button"
+								class="h-5 w-5 sm:w-6 sm:h-6"
+							/>
 						</button>
 					</div>
 					<p
@@ -166,10 +173,8 @@
 					</p>
 				</div>
 
-				<div
-					class="animate__animated animate__fadeInUp flex overflow-x-auto gap-5 lg-screens:gap-8 sm:gap-8"
-				>
-					{#each therapistsData.slice(startIndex, startIndex + itemsPerPage) as profile, index}
+				<div class="animate__animated animate__fadeInUp flex gap-5 lg-screens:gap-8 sm:gap-8">
+					{#each therapistsData as profile, index}
 						<div class="w-max">
 							<div
 								class="relative w-[3.75rem] h-[3.75rem] lg-screens:w-[6.25rem] lg-screens:h-[6.25rem] rounded-full sm:w-20 sm:h-20 inline-flex items-center justify-center"
@@ -197,14 +202,13 @@
 
 				<button
 					class="hidden sm:inline-flex absolute top-1/2 transform scale-x-[-1] right-4 w-8 h-8 p-1 origin-top-left -rotate-90 bg-white bg-opacity-70 rounded-lg shadow backdrop-blur-sm flex-col justify-end items-center gap-2.5"
-					on:click={startIndex + itemsPerPage >= therapistsData.length ? scrollLeft : scrollRight}
+					on:click={() => handleScrollButtonClick()}
+					id="scrollButton"
 				>
 					<img
 						src="assets/icons/chevron-left.svg"
-						style="transform: {startIndex + itemsPerPage >= therapistsData.length
-							? `scaleY(-1)`
-							: ``}"
 						alt="Scroll button"
+						style="transform: {scrollDirection === 1 ? `scaleY(-1)` : ``}"
 					/>
 				</button>
 			</div>
@@ -231,7 +235,7 @@
 	</section>
 
 	<section
-		class="hidden max-w-[22.5rem] md:min-w-[22.5rem] lg-screens:min-w-[30rem] sm:flex flex-col"
+		class="hidden max-w-[22.5rem] lg:min-w-[22.5rem] lg-screens:min-w-[30rem] lg:flex flex-col"
 	>
 		<!-- filter section header -->
 		<div class="flex items-center justify-between sm:mb-6">

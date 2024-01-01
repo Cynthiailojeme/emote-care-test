@@ -36,7 +36,10 @@
 				"Anxiety",
 				"Academic Stress"
 			],
-			"therapyCategories": [],
+			"therapyCategories": [
+				"Evidence-based Therapy",
+				"Client-centered Therapy"
+			],
 			"timeZone": "Europe/London",
 			"topAreas": [
 				"Anxiety and Panic Disorders",

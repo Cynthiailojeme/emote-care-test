@@ -11,31 +11,32 @@ export function scrollToTheTop() {
 	document.body.scrollIntoView();
 }
 
-export function scrollToLeftOrRight(id, scrollDirection) {
+export function scrollToLeftOrRight(id, left, leftBtnId) {
 	const container = document.getElementById(id);
+	const leftButton = document.getElementById(leftBtnId);
 	const maxScrollLeft = container.scrollWidth - container.clientWidth;
-	// Check if the user has reached the end of the scroll in the specified direction
-	if (container.scrollLeft === maxScrollLeft) {
-		scrollDirection = 1
+	leftButton.style.display = container.scrollLeft === maxScrollLeft ? 'block' : 'none';
+
+	if (left) {
+		leftButton.style.display = 'none';
 		container.scrollBy({ left: -5 * 200, behavior: 'smooth' });
 	} else {
-		scrollDirection = -1
+		leftButton.style.display = 'block';
 		container.scrollBy({ left: 1 * 200, behavior: 'smooth' });
 	}
 }
 
-export function scrollToTopOrBottom(id) {
-	const scrollHeight =
-		document.getElementById(id).scrollHeight - document.getElementById(id).innerHeight;
+export function scrollToTopOrBottom(id, top, topBtnId) {
+	const container = document.getElementById(id);
+	const topButton = document.getElementById(topBtnId);
 
-	// Check if the user is closer to the top or bottom and scroll accordingly
-	if (document.getElementById(id).scrollY < scrollHeight / 2) {
+	if (top) {
 		// Scroll to the top
-		const container = document.getElementById(id);
 		container.scrollTo({ top: 0, behavior: 'smooth' });
+		topButton.style.display = 'none';
 	} else {
-		// Scroll to the bottom
-		const container = document.getElementById(id);
+		// Scroll to bottom
+		topButton.style.display = 'block';
 		container.scrollTo({ top: innerHeight, behavior: 'smooth' });
 	}
 }

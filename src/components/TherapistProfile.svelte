@@ -1,15 +1,18 @@
 <script>
+	import { goto } from '$app/navigation';
 	import { capitalizeFirstLetter, getGMTOffset, getCountryAcronym } from '$lib/helpers';
 	import dayjs from 'dayjs';
 	import Button from './Button.svelte';
 
 	export let therapist;
+	let showMore = false;
 
 	const lgScreenDisplay = therapist?.profile?.therapyAreas?.slice(0, 2).length;
 	const displayedTherapistAreas =
 		therapist?.profile?.therapyAreas?.length <= 3 ? lgScreenDisplay : 1;
 	const undisplayedTherapistAreas =
 		therapist?.profile?.therapyAreas.length - displayedTherapistAreas;
+	const undisplayedTherapistAreasMobile = therapist?.profile?.therapyAreas.length - 1;
 </script>
 
 <div
@@ -154,6 +157,7 @@
 
 		<div class="sm:flex gap-6">
 			<div class="flex gap-2 lg-screens:gap-0">
+				<!-- desktop -->
 				<div class="hidden lg-screens:block">
 					{#if therapist?.profile?.therapyAreas?.length <= 3}
 						{#each therapist?.profile?.therapyAreas?.slice(0, 2) as area}
@@ -172,26 +176,46 @@
 					{/if}
 				</div>
 
-				<div
-					class="lg-screens:hidden bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
-				>
-					{therapist?.profile?.therapyAreas[0]}
-				</div>
 				{#if undisplayedTherapistAreas > 0}
 					<div
-						class="bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
+						class="hidden sm:block bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
 					>
-						<span class="inine-flex sm:hidden">Show</span> +{undisplayedTherapistAreas}
+						+{undisplayedTherapistAreas}
 					</div>
 				{/if}
+
+				<!-- mobile -->
+				<div class="lg-screens:hidden w-full flex items-center flex-wrap gap-2">
+					{#each showMore ? therapist?.profile?.therapyAreas : therapist?.profile?.therapyAreas?.slice(0, 1) as area}
+						<div
+							class=" bg-stroke-cards w-auto px-2 py-1 text-primary-dark font-poppins text-[0.75rem] font-normal leading-normal rounded-2xl"
+						>
+							{area}
+						</div>{/each}
+
+					<button
+						class="bg-stroke-cards w-auto px-2 py-1 text-primary-dark font-poppins text-[0.75rem] font-normal leading-normal rounded-2xl"
+						on:click={() => (showMore = !showMore)}
+					>
+						{#if showMore}
+							Hide
+						{:else}
+							Show +{undisplayedTherapistAreasMobile}
+						{/if}
+					</button>
+				</div>
 			</div>
 
 			<button
 				type="button"
 				class="text-accent-dark-blue font-poppins text-[0.875rem] mt-4 sm:text-base sm:mt-0 hover:underline"
-				><a href="/{therapist?.id}" title="View profile"
-					>View <span class="hidden lg-screens:inline-flex">full</span> profile</a
-				></button
+				on:click={() =>
+					goto(`/${therapist.id}`, {
+						replaceState: true,
+						state: { id: therapist.id, name: `${therapist.firstName} ${therapist.lastName}` }
+					})}
+			>
+				View <span class="hidden lg-screens:inline-flex">full</span> profile</button
 			>
 		</div>
 	</div>

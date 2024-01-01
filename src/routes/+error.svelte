@@ -1,0 +1,13 @@
+<script>
+	import { page } from '$app/stores';
+</script>
+
+<div
+	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex justify-between flex-col lg:flex-row gap-6"
+>
+	<h1
+		class="mt-6 text-primary-dark font-poppins text-[1rem] lg-screens:text-[1.375rem] sm:text-[1.125rem] mb-1 font-medium leading-5"
+	>
+		{$page.status}: {$page.error.message}
+	</h1>
+</div>

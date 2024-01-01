@@ -4,7 +4,6 @@
 	import SearchInput from './SearchInput.svelte';
 	import FilterItem from './FilterItem.svelte';
 	import DoubleRangeSlider from './DoubleRangeSlider.svelte';
-	import { scrollToTheTop } from '$lib/helpers';
 	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
 
 	export let isMobile = false;
@@ -178,17 +177,12 @@
 
 	onMount(() => {
 		applyFilters();
-
-		setTimeout(() => {
-			// Scroll to the top of the page
-			scrollToTheTop();
-		}, 200);
 	});
 </script>
 
 <div
 	class="{isMobile &&
-		'filters-mobile-class'} h-auto p-6 bg-white rounded-2xl border border-stroke-cards flex-col justify-start items-start gap-8 inline-flex"
+		'filters-mobile-class'} w-full h-auto p-6 bg-white rounded-2xl border border-stroke-cards flex-col justify-start items-start gap-8 inline-flex"
 >
 	<!-- Appointment Type Filter -->
 	<FilterItem
@@ -197,7 +191,7 @@
 		toggleOpen={() => (filters.appointmentType.isOpen = !filters.appointmentType.isOpen)}
 	>
 		<div class="flex flex-col gap-4">
-			{#each filters.appointmentType.options as type}
+			{#each filters.appointmentType.options as type (type)}
 				<label for={type} class="flex items-start">
 					<input
 						id={type}
@@ -353,7 +347,7 @@
 		toggleOpen={() => (filters.country.isOpen = !filters.country.isOpen)}
 	>
 		<div class="flex flex-wrap gap-y-4 gap-x-2">
-			{#each filters.country.options as country}
+			{#each filters.country.options as country (country.value)}
 				<Tag
 					selectedFilters={$selectedFilters.country}
 					filterValue={country.value}
@@ -371,7 +365,7 @@
 		toggleOpen={() => (filters.language.isOpen = !filters.language.isOpen)}
 	>
 		<div class="flex flex-wrap gap-y-4 gap-x-2">
-			{#each filters.language.options as language}
+			{#each filters.language.options as language (language)}
 				<Tag
 					selectedFilters={$selectedFilters.language}
 					filterValue={language}

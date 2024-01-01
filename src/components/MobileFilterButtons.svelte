@@ -7,6 +7,7 @@
 	export let resetAllFilters;
 	export let selectedOption = null;
 	export let onSelectionChange;
+	export let sortDisplayedItems;
 	export let options = [];
 
 	let showSortModal = false;
@@ -145,7 +146,7 @@
 				>
 			</div>
 
-			<Filters profiles={therapistsData} isMobile={true} />
+			<Filters profiles={therapistsData} isMobile={true} {sortDisplayedItems} />
 		</div>
 	{/if}
 </div>

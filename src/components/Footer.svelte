@@ -42,7 +42,7 @@
 		</div>
 
 		<ul class="flex items-center justify-between gap-8">
-			{#each tabs as tab}
+			{#each tabs as tab (tab.name)}
 				<li>
 					<a
 						href={tab.link}
@@ -80,7 +80,7 @@
 		</div>
 
 		<div class="flex items-center gap-6">
-			{#each socialIcons as socialIcon}
+			{#each socialIcons as socialIcon (socialIcon.src)}
 				<div
 					class="w-[3.87863rem] h-[3.87863rem] flex justify-center items-center rounded-full bg-white shadow-box-circle"
 				>

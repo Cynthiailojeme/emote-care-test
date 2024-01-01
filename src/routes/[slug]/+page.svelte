@@ -397,3 +397,7 @@
 		<SingleProfileRight {therapist} />
 	{/if}
 </div>
+
+<svelte:head>
+	<title>{$page?.params?.slug} Profile</title>
+</svelte:head>

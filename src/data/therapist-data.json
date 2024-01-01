@@ -5,7 +5,9 @@
 		"createdAt": "2023-12-11T03:44:58.214Z",
 		"demographic": {
 			"location": "Canada",
-			"mainLanguage": ["English, Spanish"]
+			"mainLanguage": [
+				"English, Spanish"
+			]
 		},
 		"email": "jkscheung@emotecare.com",
 		"sex": "Female",
@@ -54,7 +56,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": false
 			},
 			"bookingConfirmationNotification": {
@@ -77,8 +83,8 @@
 		"rates": {
 			"amount": "64"
 		},
-        "nextAvailableDate": "Jan 4, 2024",
-        "nextAvailableTime": "11:00 am",
+		"nextAvailableDate": "Jan 4, 2024",
+		"nextAvailableTime": "11:00 am",
 		"updatedAt": "2023-12-14T03:15:55.829Z"
 	},
 	{
@@ -128,7 +134,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": true
 			},
 			"bookingConfirmationNotification": {
@@ -151,8 +161,8 @@
 		"rates": {
 			"amount": "65"
 		},
-        "nextAvailableDate": "Jan 4, 2024",
-        "nextAvailableTime": "12:00 pm",
+		"nextAvailableDate": "Jan 4, 2024",
+		"nextAvailableTime": "12:00 pm",
 		"updatedAt": "2023-12-08T13:22:48.614Z"
 	},
 	{
@@ -161,7 +171,9 @@
 		"createdAt": "2023-12-12T06:26:54.982Z",
 		"demographic": {
 			"location": "Australia",
-			"mainLanguage": ["English"]
+			"mainLanguage": [
+				"English"
+			]
 		},
 		"email": "liam@emotecare.com",
 		"sex": "Male",
@@ -189,7 +201,11 @@
 				"Couples Counseling",
 				"Academic Stress"
 			],
-			"therapyCategories": ["Humanistic Therapy", "Existential Therapy", "Family Therapy"],
+			"therapyCategories": [
+				"Humanistic Therapy",
+				"Existential Therapy",
+				"Family Therapy"
+			],
 			"yearsOfExperience": 6
 		},
 		"role": "therapist",
@@ -198,7 +214,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": false
 			},
 			"bookingConfirmationNotification": {
@@ -221,8 +241,8 @@
 		"rates": {
 			"amount": "55"
 		},
-        "nextAvailableDate": "Jan 11, 2024",
-        "nextAvailableTime": "18:00 pm",
+		"nextAvailableDate": "Jan 11, 2024",
+		"nextAvailableTime": "18:00 pm",
 		"updatedAt": "2023-12-12T06:26:55.020Z"
 	},
 	{
@@ -231,7 +251,9 @@
 		"createdAt": "2023-12-11T03:44:58.214Z",
 		"demographic": {
 			"location": "Australia",
-			"mainLanguage": ["English"]
+			"mainLanguage": [
+				"English"
+			]
 		},
 		"email": "jkscheung@emotecare.com",
 		"sex": "Male",
@@ -262,7 +284,12 @@
 				"Couples and Relationship Counseling",
 				"Anxiety"
 			],
-			"therapyCategories": ["Humanistic Therapy", "Group Therapy", "Art Therapy", "Music Therapy"],
+			"therapyCategories": [
+				"Humanistic Therapy",
+				"Group Therapy",
+				"Art Therapy",
+				"Music Therapy"
+			],
 			"timeZone": "Europe/London",
 			"topAreas": [
 				"Anxiety and Panic Disorders",
@@ -278,7 +305,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": false
 			},
 			"bookingConfirmationNotification": {
@@ -301,17 +332,19 @@
 		"rates": {
 			"amount": "64"
 		},
-        "nextAvailableDate": "Jan 5, 2024",
-        "nextAvailableTime": "11:00 am",
+		"nextAvailableDate": "Jan 5, 2024",
+		"nextAvailableTime": "11:00 am",
 		"updatedAt": "2023-12-14T03:15:55.829Z"
 	},
 	{
-		"avatarUrl": "data:image/jpeg;base64,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",
+		"avatarUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ55_7obq5FWIlu9qegpQ16LgR1zFtcvX1Egw&usqp=CAU",
 		"birthday": "1990-01-01",
 		"createdAt": "2023-12-08T13:22:48.577Z",
 		"demographic": {
 			"location": "United Kingdom",
-			"mainLanguage": ["English, Mandarin"]
+			"mainLanguage": [
+				"English, Mandarin"
+			]
 		},
 		"email": "sungchen@gmail.com",
 		"sex": "Male",
@@ -332,8 +365,16 @@
 		"profile": {
 			"bio": "Creating a safe space for young minds to express themselves and grow emotionally. Utilizes play therapy, CBT, and family systems approaches.",
 			"qualifications": [],
-			"therapyAreas": ["Couples Counseling", "Play Therapy for Children", "Anxiety"],
-			"therapyCategories": ["Humanistic Therapy", "Existential Therapy", "Family Therapy"],
+			"therapyAreas": [
+				"Couples Counseling",
+				"Play Therapy for Children",
+				"Anxiety"
+			],
+			"therapyCategories": [
+				"Humanistic Therapy",
+				"Existential Therapy",
+				"Family Therapy"
+			],
 			"yearsOfExperience": 6
 		},
 		"role": "therapist",
@@ -342,7 +383,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": true
 			},
 			"bookingConfirmationNotification": {
@@ -366,16 +411,18 @@
 			"amount": "55"
 		},
 		"nextAvailableDate": "Jan 11, 2024",
-        "nextAvailableTime": "16:00 pm",
+		"nextAvailableTime": "16:00 pm",
 		"updatedAt": "2023-12-08T13:22:48.614Z"
 	},
 	{
-		"avatarUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ55_7obq5FWIlu9qegpQ16LgR1zFtcvX1Egw&usqp=CAU",
+		"avatarUrl": "data:image/jpeg;base64,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",
 		"birthday": "1990-01-01",
 		"createdAt": "2023-12-12T06:26:54.982Z",
 		"demographic": {
 			"location": "United Kingdom",
-			"mainLanguage": ["English, Italian"]
+			"mainLanguage": [
+				"English, Italian"
+			]
 		},
 		"email": "grethentroff@emotecare.com",
 		"sex": "Male",
@@ -397,8 +444,15 @@
 		"profile": {
 			"bio": "Empowering you to achieve your life goals, improve well-being, and find balance. Uses a client-centered approach, positive psychology, and goal setting",
 			"qualifications": [],
-			"therapyAreas": ["Goal Setting", "Couples Counseling"],
-			"therapyCategories": ["Group Therapy", "Art Therapy", "Music Therapy"],
+			"therapyAreas": [
+				"Goal Setting",
+				"Couples Counseling"
+			],
+			"therapyCategories": [
+				"Group Therapy",
+				"Art Therapy",
+				"Music Therapy"
+			],
 			"yearsOfExperience": 4
 		},
 		"role": "therapist",
@@ -407,7 +461,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": false
 			},
 			"bookingConfirmationNotification": {
@@ -430,8 +488,8 @@
 		"rates": {
 			"amount": "49"
 		},
-        "nextAvailableDate": "Jan 3, 2024",
-        "nextAvailableTime": "8:30 am",
+		"nextAvailableDate": "Jan 3, 2024",
+		"nextAvailableTime": "8:30 am",
 		"updatedAt": "2023-12-12T06:26:55.020Z"
 	},
 	{
@@ -440,7 +498,9 @@
 		"createdAt": "2023-12-11T03:44:58.214Z",
 		"demographic": {
 			"location": "United States",
-			"mainLanguage": ["English, French"]
+			"mainLanguage": [
+				"English, French"
+			]
 		},
 		"email": "marcussaris@emotecare.com",
 		"sex": "Male",
@@ -465,7 +525,11 @@
 			"country": "Canada",
 			"imageUrls": [],
 			"qualifications": [],
-			"therapyAreas": ["Addiction Recovery", "Relapse Prevention", "Anxiety"],
+			"therapyAreas": [
+				"Addiction Recovery",
+				"Relapse Prevention",
+				"Anxiety"
+			],
 			"therapyCategories": [
 				"Cognitive Behavioral Therapy (CBT)",
 				"Psychodynamic Therapy",
@@ -486,7 +550,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": false
 			},
 			"bookingConfirmationNotification": {
@@ -509,8 +577,8 @@
 		"rates": {
 			"amount": "51"
 		},
-        "nextAvailableDate": "Jan 10, 2024",
-        "nextAvailableTime": "10:00 am",
+		"nextAvailableDate": "Jan 10, 2024",
+		"nextAvailableTime": "10:00 am",
 		"updatedAt": "2023-12-14T03:15:55.829Z"
 	},
 	{
@@ -519,7 +587,9 @@
 		"createdAt": "2023-12-08T13:22:48.577Z",
 		"demographic": {
 			"location": "Canada",
-			"mainLanguage": ["English, German"]
+			"mainLanguage": [
+				"English, German"
+			]
 		},
 		"email": "sophiapersely@gmail.com",
 		"sex": "Female",
@@ -560,7 +630,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": true
 			},
 			"bookingConfirmationNotification": {
@@ -583,8 +657,8 @@
 		"rates": {
 			"amount": "57"
 		},
-        "nextAvailableDate": "Jan 9, 2024",
-        "nextAvailableTime": "14:00 pm",
+		"nextAvailableDate": "Jan 9, 2024",
+		"nextAvailableTime": "14:00 pm",
 		"updatedAt": "2023-12-08T13:22:48.614Z"
 	},
 	{
@@ -593,7 +667,9 @@
 		"createdAt": "2023-12-12T06:26:54.982Z",
 		"demographic": {
 			"location": "Spain",
-			"mainLanguage": ["English, Punjabi"]
+			"mainLanguage": [
+				"English, Punjabi"
+			]
 		},
 		"email": "vasukilisa@emotecare.com",
 		"sex": "Female",
@@ -621,7 +697,11 @@
 				"Anxiety",
 				"Academic Stress"
 			],
-			"therapyCategories": ["Humanistic Therapy", "Existential Therapy", "Family Therapy"],
+			"therapyCategories": [
+				"Humanistic Therapy",
+				"Existential Therapy",
+				"Family Therapy"
+			],
 			"yearsOfExperience": 8
 		},
 		"role": "therapist",
@@ -630,7 +710,11 @@
 			"appointmentReminder": {
 				"emailNotification": true,
 				"inAppNotification": true,
-				"reminderOptions": [24, 12, 1],
+				"reminderOptions": [
+					24,
+					12,
+					1
+				],
 				"smsNotification": false
 			},
 			"bookingConfirmationNotification": {
@@ -653,8 +737,8 @@
 		"rates": {
 			"amount": "62"
 		},
-        "nextAvailableDate": "Jan 19, 2024",
-        "nextAvailableTime": "09:00 am",
+		"nextAvailableDate": "Jan 19, 2024",
+		"nextAvailableTime": "09:00 am",
 		"updatedAt": "2023-12-12T06:26:55.020Z"
 	}
 ]

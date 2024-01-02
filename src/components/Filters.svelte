@@ -4,7 +4,7 @@
 	import SearchInput from './SearchInput.svelte';
 	import FilterItem from './FilterItem.svelte';
 	import DoubleRangeSlider from './DoubleRangeSlider.svelte';
-	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
+	import { filteredTherapistProfiles, selectedFilters, filterCount } from '../lib/store';
 
 	export let isMobile = false;
 	export let sortDisplayedItems;
@@ -55,24 +55,25 @@
 	};
 
 	function filteredItemCount() {
-		let count = 0;
 		const filters = $selectedFilters;
+		let count = 0;
 
-		Object.keys(filters).forEach((key) => {
-			if (Array.isArray(filters[key]) && filters[key].length > 0) {
-				count++;
-			} else if (!Array.isArray(filters[key]) && filters[key]) {
-				count++;
-			}
-		});
+		const isNotEmpty = (value) => (Array.isArray(value) ? value.length > 0 : value !== '');
 
-		filterCount.set(count);
+		count += isNotEmpty(filters.appointmentType);
+		count += filters.price.min > 0 || filters.price.max < 200 ? 1 : 0;
+		count += filters.yearsOfExperience.min > 0 || filters.yearsOfExperience.max < 25 ? 1 : 0;
+		count += isNotEmpty(filters.sex);
+		count += isNotEmpty(filters.helpNeeded);
+		count += isNotEmpty(filters.therapistType);
+		count += isNotEmpty(filters.country);
+		count += isNotEmpty(filters.language);
+
+		filterCount.update(() => count);
 	}
 
 	// Function to apply filters to the profiles
 	function applyFilters() {
-		isLoading.set(() => true);
-
 		let filteredProfiles = [...profiles];
 
 		// Filter by appointment type
@@ -93,8 +94,7 @@
 		filteredProfiles = filteredProfiles.filter(
 			(profile) =>
 				profile.profile.yearsOfExperience >= $selectedFilters.yearsOfExperience.min &&
-				(profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max ||
-					profile.profile.yearsOfExperience > $selectedFilters.yearsOfExperience.max)
+				profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max
 		);
 
 		// Filter by sex
@@ -151,13 +151,8 @@
 		// Update the profiles variable with the filtered results
 		filteredTherapistProfiles.update(() => filteredProfiles);
 
-		// Sort displayed result
+		// Apply current sort value
 		sortDisplayedItems();
-
-		setTimeout(() => {
-			// Set loading state to false
-			isLoading.set(false);
-		}, 200);
 	}
 
 	// Function to toggle a filter value

@@ -49,7 +49,7 @@
 </script>
 
 <section
-	class="md:min-w-[25rem] md:max-w-25rem w-full lg-screens:min-w-[31.1rem] flex flex-col sm:gap-6 gap-4"
+	class="md:min-w-[25rem] md:max-w-25rem w-full sm:min-w-[25rem] sm:max-w-25rem lg-screens:min-w-[31.1rem] lg-screens:max-w-[31.1rem] flex flex-col sm:gap-6 gap-4"
 >
 	<!-- session rates -->
 	<div
@@ -193,7 +193,7 @@
 			<ScrollButtons
 				containerId="calendarScrollContainer"
 				btnId="scrollToLeft"
-				class="hidden sm:inline-flex absolute transform scale-x-[-1] w-8 h-8 p-1 origin-top-left -rotate-90 bg-white backdrop-blur-2 rounded-lg border border-solid border-stroke-medium shadow-md flex-col justify-end items-center gap-2.5 z-[100]"
+				styles="hidden sm:inline-flex absolute transform scale-x-[-1] w-8 h-8 p-1 origin-top-left -rotate-90 bg-white backdrop-blur-2 rounded-lg border border-solid border-stroke-medium shadow-md flex-col justify-end items-center gap-2.5 z-[100]"
 				top="50%"
 				left="0"
 				right="0"
@@ -237,7 +237,8 @@
 				id="scrollToTop"
 				style="display: none;"
 				class="hidden sm:inline-flex absolute top-[5%] transform scale-x-[-1] right-[42%] w-8 h-8 p-1 rounded-lg border border-solid border-stroke-medium bg-white shadow-md backdrop-blur-2 flex-col justify-end items-center gap-2.5 z-[100]"
-				on:click={() => scrollToTopOrBottom('calendarScrollContainer', true, 'scrollToTop')}
+				on:click={() =>
+					scrollToTopOrBottom('calendarScrollContainer', true, 'scrollToTop', 'scrollToBottom')}
 			>
 				<img
 					src="assets/icons/chevron-left.svg"
@@ -247,8 +248,10 @@
 			</button>
 
 			<button
+				id="scrollToBottom"
 				class="hidden sm:inline-flex absolute bottom-[10%] transform scale-x-[-1] right-[42%] w-8 h-8 p-1 rounded-lg border border-solid border-stroke-medium bg-white shadow-md backdrop-blur-2 flex-col justify-end items-center gap-2.5 z-[100]"
-				on:click={() => scrollToTopOrBottom('calendarScrollContainer', false, 'scrollToTop')}
+				on:click={() =>
+					scrollToTopOrBottom('calendarScrollContainer', false, 'scrollToTop', 'scrollToBottom')}
 			>
 				<img src="assets/icons/chevron-left.svg" alt="Scroll button" />
 			</button>

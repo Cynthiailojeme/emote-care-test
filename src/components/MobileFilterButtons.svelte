@@ -5,11 +5,11 @@
 
 	export let resetAllSortings;
 	export let resetAllFilters;
-	export let selectedOption = null;
 	export let onSelectionChange;
 	export let sortDisplayedItems;
 	export let options = [];
 
+	let selectedOption = null
 	let showSortModal = false;
 	let showFilterModal = false;
 
@@ -63,7 +63,7 @@
 
 	{#if showSortModal}
 		<!-- Sort Options -->
-		<div class="fixed top-0 left-0 w-full h-full z-[100] bg-white">
+		<div class="fixed top-0 left-0 w-full h-full z-[500] bg-white">
 			<div class="flex justify-between items-center bg-accent-green-light-brand p-4">
 				<div
 					class="text-primary-dark font-poppins font-semibold text-base leading-5 inline-flex items-center"
@@ -82,6 +82,7 @@
 					class="text-black"
 					on:click={() => {
 						showSortModal = false;
+						selectedOption = null;
 						resetAllSortings();
 					}}>Reset all</button
 				>
@@ -122,7 +123,7 @@
 
 	{#if showFilterModal}
 		<!-- Filter Options -->
-		<div class="fixed top-0 left-0 w-full h-full z-[100] bg-white">
+		<div class="fixed top-0 left-0 w-full h-full z-[500] bg-white">
 			<div class="flex justify-between items-center mb-4 bg-accent-green-light-brand p-4">
 				<div
 					class="text-primary-dark font-poppins font-semibold text-base leading-5 inline-flex items-center"

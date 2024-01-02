@@ -25,13 +25,13 @@
 	<div>
 		<button
 			type="button"
-			class="w-full h-11 px-6 py-2 bg-white rounded-[60px] shadow border border-stone-300 justify-center items-center gap-4 inline-flex"
+			class="w-full min-w-40 h-11 px-6 py-2 bg-white rounded-[60px] shadow border border-stone-300 justify-center items-center gap-4 inline-flex"
 			id="options-menu"
 			aria-haspopup="true"
 			aria-expanded="true"
 			on:click={toggleDropdown}
 		>
-			{selectedOption ? `Sort by: ${getLabelText(selectedOption)}` : 'Select an option'}
+			{selectedOption ? `Sort by: ${getLabelText(selectedOption)}` : 'Sort by'}
 			{#if selectedOption?.value.includes('desc')}
 				<img
 					src="/assets/icons/arrow-down.svg"

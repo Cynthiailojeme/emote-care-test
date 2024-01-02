@@ -4,7 +4,6 @@
 	import SearchInput from './SearchInput.svelte';
 	import FilterItem from './FilterItem.svelte';
 	import DoubleRangeSlider from './DoubleRangeSlider.svelte';
-	import { scrollToTheTop } from '$lib/helpers';
 	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
 
 	export let isMobile = false;
@@ -57,19 +56,17 @@
 
 	function filteredItemCount() {
 		let count = 0;
-		let filters = $selectedFilters;
+		const filters = $selectedFilters;
 
-		// Check each filter condition and increment the count if it's not empty
-		if (filters.appointmentType.length > 0) count++;
-		if (filters.price.min > 0 || filters.price.max < 200) count++;
-		if (filters.yearsOfExperience.min > 0 || filters.yearsOfExperience.max < 25) count++;
-		if (filters.sex !== '') count++;
-		if (filters.helpNeeded !== '') count++;
-		if (filters.therapistType !== '') count++;
-		if (filters.country.length > 0) count++;
-		if (filters.language.length > 0) count++;
+		Object.keys(filters).forEach((key) => {
+			if (Array.isArray(filters[key]) && filters[key].length > 0) {
+				count++;
+			} else if (!Array.isArray(filters[key]) && filters[key]) {
+				count++;
+			}
+		});
 
-		filterCount.update(() => count);
+		filterCount.set(count);
 	}
 
 	// Function to apply filters to the profiles
@@ -96,7 +93,8 @@
 		filteredProfiles = filteredProfiles.filter(
 			(profile) =>
 				profile.profile.yearsOfExperience >= $selectedFilters.yearsOfExperience.min &&
-				profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max
+				(profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max ||
+					profile.profile.yearsOfExperience > $selectedFilters.yearsOfExperience.max)
 		);
 
 		// Filter by sex
@@ -178,17 +176,12 @@
 
 	onMount(() => {
 		applyFilters();
-
-		setTimeout(() => {
-			// Scroll to the top of the page
-			scrollToTheTop();
-		}, 200);
 	});
 </script>
 
 <div
 	class="{isMobile &&
-		'filters-mobile-class'} h-auto p-6 bg-white rounded-2xl border border-stroke-cards flex-col justify-start items-start gap-8 inline-flex"
+		'filters-mobile-class'} w-full h-auto p-6 bg-white rounded-2xl border border-stroke-cards flex-col justify-start items-start gap-8 inline-flex"
 >
 	<!-- Appointment Type Filter -->
 	<FilterItem
@@ -197,7 +190,7 @@
 		toggleOpen={() => (filters.appointmentType.isOpen = !filters.appointmentType.isOpen)}
 	>
 		<div class="flex flex-col gap-4">
-			{#each filters.appointmentType.options as type}
+			{#each filters.appointmentType.options as type (type)}
 				<label for={type} class="flex items-start">
 					<input
 						id={type}
@@ -353,7 +346,7 @@
 		toggleOpen={() => (filters.country.isOpen = !filters.country.isOpen)}
 	>
 		<div class="flex flex-wrap gap-y-4 gap-x-2">
-			{#each filters.country.options as country}
+			{#each filters.country.options as country (country.value)}
 				<Tag
 					selectedFilters={$selectedFilters.country}
 					filterValue={country.value}
@@ -371,7 +364,7 @@
 		toggleOpen={() => (filters.language.isOpen = !filters.language.isOpen)}
 	>
 		<div class="flex flex-wrap gap-y-4 gap-x-2">
-			{#each filters.language.options as language}
+			{#each filters.language.options as language (language)}
 				<Tag
 					selectedFilters={$selectedFilters.language}
 					filterValue={language}

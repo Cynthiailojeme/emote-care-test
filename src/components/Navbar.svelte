@@ -34,7 +34,7 @@
 	</div>
 
 	<ul class="hidden lg:flex items-center justify-between gap-8">
-		{#each tabs as tab}
+		{#each tabs as tab (tab.name)}
 			<li>
 				<a
 					href={tab.link}

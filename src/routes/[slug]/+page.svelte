@@ -5,7 +5,6 @@
 		capitalizeFirstLetter,
 		getGMTOffset,
 		getCountryAcronym,
-		scrollToTheTop,
 		truncateText
 	} from '$lib/helpers';
 	import { isLoading } from '$lib/store';
@@ -16,7 +15,7 @@
 	import SingleProfileLeft from '../../components/SingleProfileLeft.svelte';
 
 	// Get therapist ID from the URL
-	let therapistId = $page.url?.pathname?.substring(1);
+	let therapistId = $page?.params?.slug;
 
 	let therapist = null;
 	let specialties = [];
@@ -27,23 +26,21 @@
 
 	function getCurrentProfile() {
 		isLoading.set(() => true);
+
+		// Get therapist details
 		therapist = therapistsData.find((t) => t.id === therapistId);
 		specialties = therapist?.profile?.therapyAreas;
 		therapyTypes = therapist?.profile?.therapyCategories;
 		bioInfo.unshift(therapist?.sex);
+
 		// Set loading state to false
 		setTimeout(() => {
 			isLoading.set(false);
-		}, 200);
+		}, 500);
 	}
 
 	onMount(() => {
 		getCurrentProfile();
-
-		setTimeout(() => {
-			// Scroll to the top of the page
-			scrollToTheTop();
-		}, 300);
 	});
 </script>
 
@@ -156,7 +153,7 @@
 								class="w-4 h-4 sm:w-5 sm:h-5"
 							/>
 							<p
-								class="text-primary-dark font-poppins text-[0.75rem] lg-screens:text-[1.125rem] sm:text-[1rem] font-medium leading-5"
+								class="text-primary-dark font-poppins text-[0.75rem] lg-screens:text-[1.125rem] sm:text-[1rem] leading-normal font-medium leading-5"
 							>
 								{therapist?.profile?.yearsOfExperience
 									? `${therapist?.profile?.yearsOfExperience} year${
@@ -228,7 +225,7 @@
 							slot="rightIcon"
 							src={'assets/icons/arrow-left.svg'}
 							alt="Arrow left icon"
-							style="filter: grayscale(0%); brightness(0);"
+							style="filter: grayscale(100%) brightness(0);"
 						/>
 					</Button>
 
@@ -329,7 +326,7 @@
 				</button>
 
 				<div class="flex items-center gap-2 sm:gap-4 flex-wrap">
-					{#each bioInfo as info}
+					{#each bioInfo as info (info)}
 						<div
 							class="flex px-4 py-1 justify-center items-center rounded-full bg-stroke-cards text-primary-dark font-poppins text-[0.75rem] sm:text-base font-medium"
 						>
@@ -347,7 +344,7 @@
 						Specialities and expertise
 					</h3>
 					<div class="flex items-center gap-2 sm:gap-4 flex-wrap">
-						{#each specialties as specialty}
+						{#each specialties as specialty (specialty)}
 							<div
 								class="flex px-4 py-1 justify-center items-center rounded-full bg-stroke-cards tracking-[-0.02rem] text-primary-dark font-poppins text-[0.75rem] sm:text-base font-medium"
 							>
@@ -379,7 +376,7 @@
 
 				<div class="mb-4 sm:mb-8">
 					<div class="flex items-center gap-2 sm:gap-4 flex-wrap">
-						{#each therapyTypes as type}
+						{#each therapyTypes as type (type)}
 							<div
 								class="flex px-4 py-1 justify-center items-center rounded-full bg-stroke-cards underline text-primary-dark font-poppins text-[0.75rem] sm:text-base font-medium"
 							>
@@ -399,5 +396,5 @@
 </div>
 
 <svelte:head>
-	<title>{$page?.params?.slug} Profile</title>
+	<title>{$page?.params?.state?.name ?? $page?.params?.slug} Profile</title>
 </svelte:head>

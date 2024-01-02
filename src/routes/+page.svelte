@@ -5,9 +5,9 @@
 	import therapistsData from '../data/therapist-data.json'; // added new data items to each object: appointmentType, sex, rates, nextAvailableDate, nextAvailableTime
 	import TherapistProfile from '../components/TherapistProfile.svelte';
 	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
-	import { scrollToLeftOrRight } from '$lib/helpers';
 	import MobileFilterButtons from '../components/MobileFilterButtons.svelte';
 	import Loader from '../components/Loader.svelte';
+	import ScrollButtons from '../components/ScrollButtons.svelte';
 
 	let isMobile;
 
@@ -91,13 +91,6 @@
 		sortDisplayedItems();
 	}
 
-	// Scroll implementation
-	let scrollDirection = -1; // 1 for right, -1 for left
-
-	function handleScrollButtonClick() {
-		scrollToLeftOrRight('introVideosContainer', scrollDirection);
-	}
-
 	// Subscribe to changes in the store
 	$: {
 		$isLoading = $isLoading;
@@ -139,6 +132,7 @@
 				selectedOption={null}
 				onSelectionChange={handleSortChange}
 				options={sortOptions}
+				{sortDisplayedItems}
 			/>
 		</div>
 
@@ -173,7 +167,7 @@
 				</div>
 
 				<div class="animate__animated animate__fadeInUp flex gap-5 lg-screens:gap-8 sm:gap-8">
-					{#each therapistsData as profile, index}
+					{#each therapistsData as profile, index (profile.id)}
 						<div class="w-max">
 							<div
 								class="relative w-[3.75rem] h-[3.75rem] lg-screens:w-[6.25rem] lg-screens:h-[6.25rem] rounded-full sm:w-20 sm:h-20 inline-flex items-center justify-center"
@@ -199,17 +193,13 @@
 					{/each}
 				</div>
 
-				<button
-					class="hidden sm:inline-flex absolute top-1/2 transform scale-x-[-1] right-4 w-8 h-8 p-1 origin-top-left -rotate-90 bg-white bg-opacity-70 rounded-lg shadow backdrop-blur-sm flex-col justify-end items-center gap-2.5"
-					on:click={() => handleScrollButtonClick()}
-					id="scrollButton"
-				>
-					<img
-						src="assets/icons/chevron-left.svg"
-						alt="Scroll button"
-						style="transform: {scrollDirection === 1 ? `scaleY(-1)` : ``}"
-					/>
-				</button>
+				<ScrollButtons
+					containerId="introVideosContainer"
+					btnId="scrollSectionToLeft"
+					top="50%"
+					left="1rem"
+					right="1rem"
+				/>
 			</div>
 		</div>
 
@@ -219,7 +209,7 @@
 		{/if}
 
 		{#if !$isLoading && $filteredTherapistProfiles?.length > 0}
-			{#each $filteredTherapistProfiles as therapist}
+			{#each $filteredTherapistProfiles as therapist (therapist.id)}
 				<TherapistProfile {therapist} />
 			{/each}
 		{/if}
@@ -248,7 +238,13 @@
 				Filter by
 			</button>
 
-			<button on:click={clearAllFilters} class="hover:underline">Clear all</button>
+			<button
+				on:click={() => {
+					clearAllFilters();
+					clearAllSortings();
+				}}
+				class="hover:underline">Clear all</button
+			>
 		</div>
 
 		<!-- filter section options -->

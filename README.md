@@ -17,6 +17,7 @@ The "Search by Sex" feature uses strict equality to ensure accurate data retriev
 - Convenient scroll-to-top navigation.
 - "Read more" functionality for detailed therapist profiles.
 - Loading states on both the main page and single therapist page.
+- Interaction on calendar view book a session on single therapist page. 
 
 ## How to Run
 1. Clone the repository: `git clone https://github.com/Cynthiailojeme/emote-care-test`

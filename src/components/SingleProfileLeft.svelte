@@ -1,5 +1,5 @@
 <script>
-	import { scrollToLeftOrRight } from '$lib/helpers';
+	import ScrollButtons from './ScrollButtons.svelte';
 
 	let overview = [
 		{
@@ -45,17 +45,17 @@
 
 	let clientFocus = [
 		{
-			theme: '#BFD962',
+			theme: 'border-accent-green-light-brand',
 			title: 'Age',
 			detail: 'Children, Preteen, Teen, Adults, Elders'
 		},
 		{
-			theme: '#ACE7F2',
+			theme: 'border-accent-blue-brand',
 			title: 'Participants',
 			detail: 'Individuals, Couples'
 		},
 		{
-			theme: '#425DB6',
+			theme: 'border-accent-dark-blue',
 			title: 'Communities',
 			detail:
 				'Bisexual Allied, Body Positivity, Cancer, Gay Allied, HIV/AIDS Allied, Intersex Allied, Lesbian Allied, Non-Binary Allied'
@@ -142,19 +142,12 @@
 			count: '250'
 		}
 	];
-
-	// Scroll implementation
-	let scrollDirection = -1; // 1 for right, -1 for left
-
-	function handleScrollButtonClick() {
-		scrollToLeftOrRight('photosContainer', scrollDirection);
-	}
 </script>
 
 <div class="flex flex-col gap-4 sm:gap-8">
 	<!-- overview -->
 	<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-6">
-		{#each overview as item}
+		{#each overview as item (item.title)}
 			<div
 				class="w-full flex items-center sm:items-start m-auto sm:m-0 flex-col p-4 sm:p-6 lg-screens:p-8 rounded-2xl bg-white"
 			>
@@ -191,7 +184,7 @@
 		</div>
 
 		<div class="w-full flex gap-4 sm:gap-6 flex-col">
-			{#each rates as rate}
+			{#each rates as rate (rate.age_range)}
 				<div class="w-full flex justify-between flex-wrap items-center">
 					<div class="inline-flex items-center">
 						<div
@@ -240,10 +233,10 @@
 		</div>
 
 		<div class="w-full flex gap-4 sm:gap-6 flex-col">
-			{#each clientFocus as focus}
+			{#each clientFocus as focus, index}
 				<div
-					class="w-full flex flex-col flex-wrap px-4 py-1 sm:px-6 sm:py-2 gap-1 sm:gap-2 sm:border-l-[6px] border-l-[4px]"
-					style="border-color: {focus.theme}"
+					class="w-full flex flex-col flex-wrap px-4 py-1 sm:px-6 sm:py-2 gap-1 sm:gap-2 sm:border-l-[6px] border-l-[4px] {focus.theme} {index ===
+						2 && 'sm:border-accent-orange-brand'}"
 				>
 					<h5
 						class="text-primary-dark font-poppins text-[0.875rem] sm:text-[1.125rem] font-semibold leading-[1.25rem]"
@@ -288,16 +281,13 @@
 				</div>
 			{/each}
 
-			<button
-				class="hidden sm:inline-flex absolute top-[55%] transform scale-x-[-1] right-4 w-8 h-8 p-1 origin-top-left -rotate-90 bg-white bg-opacity-70 rounded-lg shadow backdrop-blur-sm flex-col justify-end items-center gap-2.5 z-[100]"
-				on:click={() => handleScrollButtonClick()}
-			>
-				<img
-					src="assets/icons/chevron-left.svg"
-					style="transform: {scrollDirection === 1 ? `scaleY(-1)` : ``}"
-					alt="Scroll button"
-				/>
-			</button>
+			<ScrollButtons
+				containerId="photosContainer"
+				btnId="scrollPhotosToLeft"
+				top="55%"
+				left="1rem"
+				right="1rem"
+			/>
 		</div>
 	</div>
 

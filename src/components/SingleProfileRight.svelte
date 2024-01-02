@@ -256,7 +256,7 @@
 				<img src="assets/icons/chevron-left.svg" alt="Scroll button" />
 			</button>
 
-			<button class="flex m-auto items-center text-accent-dark-blue text-base font-semibold"
+			<button class="flex m-auto items-center text-accent-dark-blue text-base font-semibold mt-4"
 				><img src="assets/icons/calendar-blue.svg" alt="calendar icon" class="w-5 h-5 mr-2" /> Open full
 				calendar
 			</button>

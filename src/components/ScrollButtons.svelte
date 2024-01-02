@@ -29,11 +29,3 @@
 		<img src="assets/icons/chevron-left.svg" alt="Scroll button" />
 	</button>
 </div>
-
-<style>
-	@media screen and (max-width: 768px) {
-		.leftButton {
-			display: none;
-		}
-	}
-</style>

@@ -56,19 +56,17 @@
 
 	function filteredItemCount() {
 		let count = 0;
-		let filters = $selectedFilters;
+		const filters = $selectedFilters;
 
-		// Check each filter condition and increment the count if it's not empty
-		if (filters.appointmentType.length > 0) count++;
-		if (filters.price.min > 0 || filters.price.max < 200) count++;
-		if (filters.yearsOfExperience.min > 0 || filters.yearsOfExperience.max < 25) count++;
-		if (filters.sex !== '') count++;
-		if (filters.helpNeeded !== '') count++;
-		if (filters.therapistType !== '') count++;
-		if (filters.country.length > 0) count++;
-		if (filters.language.length > 0) count++;
+		Object.keys(filters).forEach((key) => {
+			if (Array.isArray(filters[key]) && filters[key].length > 0) {
+				count++;
+			} else if (!Array.isArray(filters[key]) && filters[key]) {
+				count++;
+			}
+		});
 
-		filterCount.update(() => count);
+		filterCount.set(count);
 	}
 
 	// Function to apply filters to the profiles
@@ -95,7 +93,8 @@
 		filteredProfiles = filteredProfiles.filter(
 			(profile) =>
 				profile.profile.yearsOfExperience >= $selectedFilters.yearsOfExperience.min &&
-				profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max
+				(profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max ||
+					profile.profile.yearsOfExperience > $selectedFilters.yearsOfExperience.max)
 		);
 
 		// Filter by sex

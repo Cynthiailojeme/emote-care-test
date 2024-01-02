@@ -45,7 +45,7 @@
 </script>
 
 <div
-	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-[13.75rem] sm:m-auto py-4 sm:py-10 flex justify-between lg:flex-row flex-col gap-6"
+	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:m-auto lg-screens:px-[13.75rem] py-4 sm:py-10 flex justify-between lg:flex-row flex-col gap-6"
 >
 	{#if $isLoading && !therapist}
 		<Loader />
@@ -61,7 +61,7 @@
 
 	{#if !$isLoading && therapist}
 		<section
-			class="max-w-[51rem] md:w-full lg:min-w-[51rem] lg-screens:min-w-[59.8rem] w-full flex flex-col sm:gap-6 gap-4"
+			class="md:max-w-[51rem] lg:min-w-[51rem] lg-screens:min-w-[59.8rem] w-full flex flex-col sm:gap-6 gap-4"
 		>
 			<!-- therapist details -->
 			<div

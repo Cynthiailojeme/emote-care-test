@@ -20,7 +20,7 @@
 </script>
 
 <div
-	class="flex flex-col lg:flex-row mt-6 shadow-md rounded-2xl sm:shadow-none transform hover:scale-102"
+	class="h-auto flex flex-col lg:flex-row mt-6 shadow-md rounded-2xl sm:shadow-none transform hover:scale-102"
 >
 	<!-- therapist profile information -->
 	<div

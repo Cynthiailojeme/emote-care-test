@@ -45,7 +45,7 @@
 </script>
 
 <div
-	class="w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] mx-auto lg-screens:px-[13.75rem] py-4 sm:py-10 flex lg:flex-row flex-col gap-6"
+	class="w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] mx-auto lg-screens:px-[13.75rem] py-4 sm:py-10 flex lg:flex-row flex-col justify-center gap-6"
 >
 	{#if $isLoading && !therapist}
 		<Loader />

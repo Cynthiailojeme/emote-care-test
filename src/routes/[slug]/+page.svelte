@@ -32,6 +32,7 @@
 		specialties = therapist?.profile?.therapyAreas;
 		therapyTypes = therapist?.profile?.therapyCategories;
 		bioInfo.unshift(therapist?.sex);
+
 		// Set loading state to false
 		setTimeout(() => {
 			isLoading.set(false);

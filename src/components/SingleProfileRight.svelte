@@ -49,7 +49,7 @@
 </script>
 
 <section
-	class="md:min-w-[25rem] md:max-w-25rem w-full sm:min-w-[25rem] sm:max-w-25rem lg-screens:min-w-[31.1rem] lg-screens:max-w-[31.1rem] flex flex-col sm:gap-6 gap-4"
+	class="md:max-w-[25rem] lg:min-w-[25rem] lg-screens:min-w-[31.3rem] w-full flex flex-col sm:gap-6 gap-4"
 >
 	<!-- session rates -->
 	<div
@@ -279,7 +279,7 @@
 				</p>
 
 				<p class="text-primary-dark font-poppins text-[0.75rem] sm:text-base font-medium text-wrap">
-					{selectedTime}:00-{selectedTime}:50 am
+					{selectedTime}:00-{selectedTime}:50 {Number(selectedTime) >= 12 ? 'pm' : 'am'}
 				</p>
 			</div>
 

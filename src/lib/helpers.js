@@ -20,10 +20,12 @@ export function scrollToLeftOrRight(id, left, leftBtnId, rightBtnId) {
 	rightButton.style.display = maxScrollLeft - container.scrollLeft < 100 ? 'none' : 'bock';
 
 	if (left) {
+		// Scroll to the left
 		leftButton.style.display = 'none';
-		rightButton.style.display = 'block'
+		rightButton.style.display = 'block';
 		container.scrollBy({ left: -5 * 200, behavior: 'smooth' });
 	} else {
+		// Scroll to right
 		leftButton.style.display = 'block';
 		container.scrollBy({ left: 200, behavior: 'smooth' });
 	}

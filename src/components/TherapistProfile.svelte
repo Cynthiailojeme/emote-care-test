@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { capitalizeFirstLetter, getGMTOffset, getCountryAcronym } from '$lib/helpers';
 	import dayjs from 'dayjs';
@@ -7,12 +8,15 @@
 	export let therapist;
 	let showMore = false;
 
-	const lgScreenDisplay = therapist?.profile?.therapyAreas?.slice(0, 2).length;
-	const displayedTherapistAreas =
-		therapist?.profile?.therapyAreas?.length <= 3 ? lgScreenDisplay : 1;
+	let windowWidth = window.innerWidth;
 	const undisplayedTherapistAreas =
-		therapist?.profile?.therapyAreas.length - displayedTherapistAreas;
-	const undisplayedTherapistAreasMobile = therapist?.profile?.therapyAreas.length - 1;
+		therapist?.profile?.therapyAreas.length - (windowWidth <= 1440 ? 1 : 2);
+
+	onMount(() => {
+		window.addEventListener('resize', () => {
+			windowWidth = window.innerWidth;
+		});
+	});
 </script>
 
 <div
@@ -155,55 +159,30 @@
 			{therapist?.profile?.bio}
 		</p>
 
-		<div class="sm:flex gap-6">
-			<div class="flex gap-2 lg-screens:gap-0">
-				<!-- desktop -->
-				<div class="hidden lg-screens:block">
-					{#if therapist?.profile?.therapyAreas?.length <= 3}
-						{#each therapist?.profile?.therapyAreas?.slice(0, 2) as area}
-							<div
-								class="inline-flex mr-2 bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
-							>
-								{area}
-							</div>
-						{/each}
-					{:else}
-						<div
-							class="lg-screens:mr-2 bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
-						>
-							{therapist?.profile?.therapyAreas[0]}
-						</div>
-					{/if}
-				</div>
+		<div class="w-full sm:flex gap-6 flex-wrap">
+			<div class="flex gap-2 flex-wrap">
+				{#each showMore ? therapist?.profile?.therapyAreas : therapist?.profile?.therapyAreas.slice(0, windowWidth <= 1440 ? 1 : 2) as area (area)}
+					<div
+						class="inline-flex bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
+					>
+						{area}
+					</div>
+				{/each}
 
 				{#if undisplayedTherapistAreas > 0}
-					<div
-						class="hidden sm:block bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
-					>
-						+{undisplayedTherapistAreas}
-					</div>
-				{/if}
-
-				<!-- mobile -->
-				<div class="lg-screens:hidden w-full flex items-center flex-wrap gap-2">
-					{#each showMore ? therapist?.profile?.therapyAreas : therapist?.profile?.therapyAreas?.slice(0, 1) as area}
-						<div
-							class=" bg-stroke-cards w-auto px-2 py-1 text-primary-dark font-poppins text-[0.75rem] font-normal leading-normal rounded-2xl"
-						>
-							{area}
-						</div>{/each}
-
 					<button
-						class="bg-stroke-cards w-auto px-2 py-1 text-primary-dark font-poppins text-[0.75rem] font-normal leading-normal rounded-2xl"
+						class=" bg-stroke-cards w-auto px-2 sm:px-4 py-1 sm:bg-accent-green-light-bg text-primary-dark font-poppins text-[0.75rem] sm:text-base font-normal leading-normal rounded-2xl"
 						on:click={() => (showMore = !showMore)}
 					>
-						{#if showMore}
-							Hide
-						{:else}
-							Show +{undisplayedTherapistAreasMobile}
-						{/if}
+						<span class="hidden sm:inline-flex">
+							{showMore ? 'Hide' : `+${undisplayedTherapistAreas}`}</span
+						>
+
+						<span class="sm:hidden inline-flex"
+							>{showMore ? 'Hide' : `Show +${undisplayedTherapistAreas}`}
+						</span>
 					</button>
-				</div>
+				{/if}
 			</div>
 
 			<button

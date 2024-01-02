@@ -70,7 +70,7 @@
 		'assets/images/photo-5.png',
 		'assets/images/photo-1.png',
 		'assets/images/photo-2.png',
-		'assets/images/photo-3.png'
+		'assets/images/photo-3.png',
 	];
 
 	let themes = ['#BFD962', '#ACE7F2', '#FDBD48', '#425DB6'];

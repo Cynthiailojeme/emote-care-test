@@ -101,7 +101,7 @@
 </script>
 
 <div
-	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex justify-between flex-col lg:flex-row gap-6"
+	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex justify-between sm:m-auto flex-col lg:flex-row gap-6"
 >
 	<section class="max-w-[53.5rem] md:w-full lg:min-w-[53.5rem] lg-screens:min-w-[68.5rem] w-full">
 		<!-- therapists section header -->
@@ -129,7 +129,6 @@
 			<MobileFilterButtons
 				resetAllFilters={clearAllFilters}
 				resetAllSortings={clearAllSortings}
-				selectedOption={null}
 				onSelectionChange={handleSortChange}
 				options={sortOptions}
 				{sortDisplayedItems}

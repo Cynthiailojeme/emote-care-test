@@ -11,33 +11,39 @@ export function scrollToTheTop() {
 	document.body.scrollIntoView();
 }
 
-export function scrollToLeftOrRight(id, left, leftBtnId) {
+export function scrollToLeftOrRight(id, left, leftBtnId, rightBtnId) {
 	const container = document.getElementById(id);
 	const leftButton = document.getElementById(leftBtnId);
+	const rightButton = document.getElementById(rightBtnId);
 	const maxScrollLeft = container.scrollWidth - container.clientWidth;
 	leftButton.style.display = container.scrollLeft === maxScrollLeft ? 'block' : 'none';
+	rightButton.style.display = maxScrollLeft - container.scrollLeft < 100 ? 'none' : 'bock';
 
 	if (left) {
 		leftButton.style.display = 'none';
+		rightButton.style.display = 'block'
 		container.scrollBy({ left: -5 * 200, behavior: 'smooth' });
 	} else {
 		leftButton.style.display = 'block';
-		container.scrollBy({ left: 1 * 200, behavior: 'smooth' });
+		container.scrollBy({ left: 200, behavior: 'smooth' });
 	}
 }
 
-export function scrollToTopOrBottom(id, top, topBtnId) {
+export function scrollToTopOrBottom(id, top, topBtnId, bottomBtnId) {
 	const container = document.getElementById(id);
 	const topButton = document.getElementById(topBtnId);
+	const bottomButton = document.getElementById(bottomBtnId);
 
 	if (top) {
 		// Scroll to the top
 		container.scrollTo({ top: 0, behavior: 'smooth' });
 		topButton.style.display = 'none';
+		bottomButton.style.display = 'block';
 	} else {
 		// Scroll to bottom
-		topButton.style.display = 'block';
 		container.scrollTo({ top: innerHeight, behavior: 'smooth' });
+		topButton.style.display = 'block';
+		bottomButton.style.display = 'none';
 	}
 }
 

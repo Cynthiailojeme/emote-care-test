@@ -55,18 +55,21 @@
 	};
 
 	function filteredItemCount() {
-		let count = 0;
 		const filters = $selectedFilters;
+		let count = 0;
 
-		Object.keys(filters).forEach((key) => {
-			if (Array.isArray(filters[key]) && filters[key].length > 0) {
-				count++;
-			} else if (!Array.isArray(filters[key]) && filters[key]) {
-				count++;
-			}
-		});
+		const isNotEmpty = (value) => (Array.isArray(value) ? value.length > 0 : value !== '');
 
-		filterCount.set(count);
+		count += isNotEmpty(filters.appointmentType);
+		count += filters.price.min > 0 || filters.price.max < 200 ? 1 : 0;
+		count += filters.yearsOfExperience.min > 0 || filters.yearsOfExperience.max < 25 ? 1 : 0;
+		count += isNotEmpty(filters.sex);
+		count += isNotEmpty(filters.helpNeeded);
+		count += isNotEmpty(filters.therapistType);
+		count += isNotEmpty(filters.country);
+		count += isNotEmpty(filters.language);
+
+		filterCount.update(() => count);
 	}
 
 	// Function to apply filters to the profiles
@@ -93,8 +96,7 @@
 		filteredProfiles = filteredProfiles.filter(
 			(profile) =>
 				profile.profile.yearsOfExperience >= $selectedFilters.yearsOfExperience.min &&
-				(profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max ||
-					profile.profile.yearsOfExperience > $selectedFilters.yearsOfExperience.max)
+				profile.profile.yearsOfExperience <= $selectedFilters.yearsOfExperience.max
 		);
 
 		// Filter by sex

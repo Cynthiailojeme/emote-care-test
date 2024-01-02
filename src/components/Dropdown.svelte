@@ -60,7 +60,7 @@
 	<!-- Dropdown menu -->
 	{#if isOpen}
 		<div
-			class="absolute right-0 w-full mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
+			class="absolute right-0 w-full mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-[200]"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="options-menu"

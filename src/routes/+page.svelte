@@ -101,9 +101,9 @@
 </script>
 
 <div
-	class="lg-screens:m-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex justify-around flex-col lg:flex-row gap-6"
+	class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex justify-between flex-col lg:flex-row gap-6"
 >
-	<section class="max-w-[53.5rem] md:w-full lg:min-w-[53.5rem] lg-screens:min-w-[68.5rem] w-full">
+	<section class="max-w-[53.5rem] xl:max-w-[53.5rem] xl:min-w-[48.5rem] lg-screens:min-w-[68.5rem] w-full">
 		<!-- therapists section header -->
 		<div class="flex sm:items-center justify-between flex-col sm:flex-row sm:mb-6">
 			<p
@@ -223,7 +223,7 @@
 	</section>
 
 	<section
-		class="hidden max-w-[22.5rem] lg:min-w-[22.5rem] lg-screens:min-w-[30rem] lg:flex flex-col"
+		class="hidden max-w-[22.5rem] xl:min-w-[18rem] xl:max-w-[22.5rem] lg-screens:min-w-[30rem] lg:flex flex-col"
 	>
 		<!-- filter section header -->
 		<div class="flex items-center justify-between sm:mb-6">

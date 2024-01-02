@@ -45,7 +45,7 @@
 </script>
 
 <div
-	class="px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:m-auto lg-screens:px-[13.75rem] py-4 sm:py-10 flex justify-around lg:flex-row flex-col gap-6"
+	class="w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] mx-auto lg-screens:px-[13.75rem] py-4 sm:py-10 flex justify-between lg:flex-row flex-col gap-6"
 >
 	{#if $isLoading && !therapist}
 		<Loader />
@@ -61,7 +61,7 @@
 
 	{#if !$isLoading && therapist}
 		<section
-			class="md:max-w-[51rem] lg:min-w-[51rem] lg-screens:min-w-[59.8rem] w-full flex flex-col sm:gap-6 gap-4"
+			class="md:max-w-[51rem] xl:min-w-[46rem] xl:max-w-[51rem] lg-screens:min-w-[59.8rem] w-full flex flex-col sm:gap-6 gap-4"
 		>
 			<!-- therapist details -->
 			<div
@@ -113,7 +113,7 @@
 						</div>
 
 						<h2
-							class="relative top-[-20px] sm:top-0 text-primary-dark font-poppins text-[1.125rem] lg-screens:text-[1.75rem] mb-0 sm:text-[1.5rem] sm:mb-1 font-semibold leading-5 inline-flex gap-2"
+							class="relative top-[-20px] sm:top-0 text-primary-dark font-poppins text-[1.125rem] lg-screens:text-[1.75rem] mb-0 sm:text-[1.5rem] sm:mb-1 font-semibold leading-5 inline-flex gap-2 flex-wrap"
 						>
 							<span>{capitalizeFirstLetter(therapist?.firstName)}</span>
 							<span>{capitalizeFirstLetter(therapist?.lastName)}</span>

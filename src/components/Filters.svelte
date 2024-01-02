@@ -4,7 +4,7 @@
 	import SearchInput from './SearchInput.svelte';
 	import FilterItem from './FilterItem.svelte';
 	import DoubleRangeSlider from './DoubleRangeSlider.svelte';
-	import { filteredTherapistProfiles, selectedFilters, filterCount, isLoading } from '../lib/store';
+	import { filteredTherapistProfiles, selectedFilters, filterCount } from '../lib/store';
 
 	export let isMobile = false;
 	export let sortDisplayedItems;
@@ -74,8 +74,6 @@
 
 	// Function to apply filters to the profiles
 	function applyFilters() {
-		isLoading.set(() => true);
-
 		let filteredProfiles = [...profiles];
 
 		// Filter by appointment type
@@ -153,13 +151,8 @@
 		// Update the profiles variable with the filtered results
 		filteredTherapistProfiles.update(() => filteredProfiles);
 
-		// Sort displayed result
+		// Apply current sort value
 		sortDisplayedItems();
-
-		setTimeout(() => {
-			// Set loading state to false
-			isLoading.set(false);
-		}, 200);
 	}
 
 	// Function to toggle a filter value

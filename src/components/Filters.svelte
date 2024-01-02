@@ -242,7 +242,7 @@
 
 			<!-- range slider -->
 			<DoubleRangeSlider
-				values={[$selectedFilters.price.min, $selectedFilters.price.max]}
+				values={[$selectedFilters.price.min ?? 0, $selectedFilters.price.max ?? 200]}
 				min={0}
 				change={(e) => {
 					$selectedFilters.price.min = e?.detail?.values[0];
@@ -294,7 +294,10 @@
 		</div>
 
 		<DoubleRangeSlider
-			values={[$selectedFilters.yearsOfExperience.min, $selectedFilters.yearsOfExperience.max]}
+			values={[
+				$selectedFilters.yearsOfExperience.min ?? 0,
+				$selectedFilters.yearsOfExperience.max ?? 25
+			]}
 			min={0}
 			max={25}
 			change={(e) => {

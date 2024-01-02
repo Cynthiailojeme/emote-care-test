@@ -101,7 +101,7 @@
 </script>
 
 <div
-	class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex flex-col lg:flex-row gap-6"
+	class="w-full mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-[6.25rem] lg-screens:px-40 py-4 lg:py-10 flex justify-center flex-col lg:flex-row gap-6"
 >
 	<section class="max-w-[53.5rem] xl:max-w-[53.5rem] xl:min-w-[48.5rem] lg-screens:min-w-[68.5rem] w-full">
 		<!-- therapists section header -->

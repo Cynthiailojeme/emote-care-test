@@ -3,6 +3,7 @@
 
 	export let values;
 	export let change;
+	export let min = 0;
 	export let max = 200;
 </script>
 
@@ -11,7 +12,7 @@
 		bind:values
 		range
 		on:change={change}
-		min={0}
+		{min}
 		{max}
 		float
 		ariaLabels={['Min', 'Max']}

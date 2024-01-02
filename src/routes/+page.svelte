@@ -49,7 +49,7 @@
 		// Set loading state to true
 		isLoading.set(() => true);
 
-		const sortKey = selectedSortOption.value;
+		const sortKey = selectedSortOption?.value;
 		const profiles = [...$filteredTherapistProfiles];
 
 		switch (sortKey) {

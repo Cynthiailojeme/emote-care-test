@@ -49,7 +49,7 @@
 </script>
 
 <section
-	class="md:max-w-[25rem] lg:min-w-[25rem] lg-screens:min-w-[31.3rem] w-full flex flex-col sm:gap-6 gap-4"
+	class="md:max-w-[25rem] xl:min-w-[22rem] xl:max-w-[25rem] lg-screens:min-w-[31.3rem] w-full flex flex-col sm:gap-6 gap-4"
 >
 	<!-- session rates -->
 	<div

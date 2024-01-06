@@ -48,5 +48,5 @@ Examples of search terms include:
 
 ## Submission
 
-- [GitHub Repository](https://github.com/Cynthiailojeme/emote-care-test)
+- [GitHub Repository](https://github.com/Cynthiailojeme/therapist-profiles-sveltekit)
 - [Live Demo](https://cynthia-emote-care-test.vercel.app/)

@@ -40,8 +40,8 @@ Examples of search terms include:
 
 ## How to Run
 
-1. Clone the repository: `git clone https://github.com/Cynthiailojeme/emote-care-test`
-2. Navigate to the project folder: `cd emote-care-test`
+1. Clone the repository: `git clone https://github.com/Cynthiailojeme/therapist-profiles-sveltekit`
+2. Navigate to the project folder: `cd therapist-profiles-sveltekit`
 3. Install dependencies: `npm install`
 4. Run the application: `npm run dev`
 5. Open your browser and visit `http://localhost:5173/`
